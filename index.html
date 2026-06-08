@@ -41,10 +41,7 @@
       margin: 0;
       font-family: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--ink);
-      background:
-        radial-gradient(circle at 12% 8%, rgba(37, 99, 235, 0.11), transparent 28%),
-        radial-gradient(circle at 88% 14%, rgba(22, 163, 74, 0.1), transparent 25%),
-        var(--bg);
+      background: var(--bg);
       line-height: 1.55;
     }
 
@@ -608,6 +605,7 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
+      padding: 28px;
       transition: transform 0.24s ease, box-shadow 0.24s ease, opacity 0.2s ease;
     }
 
@@ -620,27 +618,33 @@
       display: none;
     }
 
-    .project-image {
-      height: 230px;
-      overflow: hidden;
-      background: var(--surface-2);
-    }
-
-    .project-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .project-image.screen img {
-      object-position: left top;
-    }
-
     .project-body {
-      padding: 22px;
       display: flex;
       flex-direction: column;
       flex: 1;
+    }
+
+    .project-icon {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      margin-bottom: 22px;
+      color: #fff;
+      background: var(--dark);
+      font-size: 1.4rem;
+    }
+
+    .project-meta {
+      display: inline-flex;
+      width: fit-content;
+      margin-bottom: 10px;
+      color: var(--green);
+      font-weight: 900;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
     }
 
     .project-body h3 {
@@ -1202,10 +1206,9 @@
 
         <div class="projects-grid">
           <article class="project-card reveal" data-tags="mobile web backend ia">
-            <div class="project-image screen">
-              <img src="Captura de Ecrã (38).png" alt="Dashboard financeiro">
-            </div>
             <div class="project-body">
+              <div class="project-icon"><i class="fa-solid fa-wallet"></i></div>
+              <span class="project-meta">Fintech product</span>
               <h3>Kwanza Smart</h3>
               <p>Produto financeiro com mobile, web, API, autenticação, dashboards, consentimento de IA, Kiko, suporte e regras de acesso.</p>
               <div class="stack"><span>React Native</span><span>Next.js</span><span>NestJS</span><span>OpenAI</span></div>
@@ -1217,10 +1220,9 @@
           </article>
 
           <article class="project-card reveal" data-tags="web backend">
-            <div class="project-image screen">
-              <img src="Captura de Ecrã (38).png" alt="AngoFin dashboard">
-            </div>
             <div class="project-body">
+              <div class="project-icon"><i class="fa-solid fa-chart-pie"></i></div>
+              <span class="project-meta">Finance dashboard</span>
               <h3>AngoFin</h3>
               <p>Dashboard financeiro com receitas, despesas, saldo, planeamento, relatórios e navegação administrativa.</p>
               <div class="stack"><span>PHP</span><span>MySQL</span><span>Dashboard</span><span>Finance</span></div>
@@ -1232,10 +1234,9 @@
           </article>
 
           <article class="project-card reveal" data-tags="backend web">
-            <div class="project-image">
-              <img src="laravel-featured.avif" alt="Laravel">
-            </div>
             <div class="project-body">
+              <div class="project-icon"><i class="fa-brands fa-laravel"></i></div>
+              <span class="project-meta">Backend systems</span>
               <h3>Sistemas Laravel</h3>
               <p>Experiência com sistemas administrativos, autenticação, rotas, painéis e estrutura backend usando PHP/Laravel.</p>
               <div class="stack"><span>Laravel</span><span>PHP</span><span>MySQL</span><span>MVC</span></div>
