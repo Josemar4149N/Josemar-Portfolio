@@ -1,692 +1,1534 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-AO">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Josemar Chipandeca - Portfolio</title>
-    <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        .gradient-text {
-            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        
-        .card-hover {
-            transition: all 0.3s ease;
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        
-        #particles-js {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 0;
-        }
-        
-        .content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
-        
-        .floating {
-            animation: float 6s ease-in-out infinite;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio de Josemar Chipandeca, desenvolvedor full stack em Angola especializado em produtos web, mobile, APIs e IA aplicada.">
+  <meta name="theme-color" content="#102820">
+  <title>Josemar Chipandeca - Full Stack Product Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    :root {
+      --ink: #102820;
+      --ink-2: #1f3b35;
+      --paper: #f7f2e8;
+      --paper-2: #fffaf1;
+      --green: #1b6b4b;
+      --mint: #b8e2c9;
+      --amber: #f1a33b;
+      --coral: #c85242;
+      --blue: #2f6fed;
+      --line: rgba(16, 40, 32, 0.14);
+      --muted: #61736c;
+      --white: #ffffff;
+      --shadow: 0 22px 60px rgba(16, 40, 32, 0.16);
+      --radius: 8px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.55;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .page-shell {
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 16px;
+      top: -80px;
+      z-index: 100;
+      background: var(--ink);
+      color: var(--white);
+      padding: 10px 14px;
+      border-radius: var(--radius);
+      transition: top 0.2s ease;
+    }
+
+    .skip-link:focus {
+      top: 16px;
+    }
+
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(16, 40, 32, 0.74);
+      color: var(--white);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 14px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 900;
+      letter-spacing: 0;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      background: var(--amber);
+      color: var(--ink);
+      font-weight: 900;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 0.94rem;
+    }
+
+    .nav-links a {
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--white);
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: var(--radius);
+      background: var(--white);
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .menu-button {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--white);
+      font-size: 1.1rem;
+    }
+
+    .hero {
+      min-height: 88vh;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      color: var(--white);
+      background-image:
+        linear-gradient(90deg, rgba(16, 40, 32, 0.94) 0%, rgba(16, 40, 32, 0.72) 42%, rgba(16, 40, 32, 0.22) 100%),
+        url("456706090_550163480856093_6749014266149851661_n.jpg");
+      background-size: cover;
+      background-position: center 30%;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 130px;
+      background: linear-gradient(0deg, var(--paper), rgba(247, 242, 232, 0));
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      width: 100%;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 118px 22px 82px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 18px;
+      color: var(--mint);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0;
+      font-size: 0.78rem;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      background: var(--amber);
+    }
+
+    .hero h1 {
+      max-width: 820px;
+      margin: 0;
+      font-size: clamp(3.1rem, 8vw, 7.8rem);
+      line-height: 0.92;
+      letter-spacing: 0;
+      font-weight: 900;
+    }
+
+    .hero-lede {
+      max-width: 710px;
+      margin: 26px 0 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 46px;
+      padding: 12px 17px;
+      border-radius: var(--radius);
+      border: 1px solid transparent;
+      font-weight: 800;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button.primary {
+      background: var(--amber);
+      color: var(--ink);
+    }
+
+    .button.secondary {
+      border-color: rgba(255, 255, 255, 0.32);
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .section {
+      padding: 86px 22px;
+    }
+
+    .section.compact {
+      padding-top: 54px;
+      padding-bottom: 54px;
+    }
+
+    .section.dark {
+      color: var(--white);
+      background: var(--ink);
+    }
+
+    .section.white {
+      background: var(--paper-2);
+    }
+
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 28px;
+      margin-bottom: 34px;
+    }
+
+    .section-kicker {
+      margin: 0 0 10px;
+      color: var(--green);
+      font-weight: 900;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+    }
+
+    .dark .section-kicker {
+      color: var(--amber);
+    }
+
+    .section-title {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      line-height: 1;
+      letter-spacing: 0;
+      font-weight: 900;
+    }
+
+    .section-text {
+      max-width: 520px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .dark .section-text {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1px;
+      border: 1px solid var(--line);
+      background: var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .proof-item {
+      background: var(--paper-2);
+      padding: 24px;
+      min-height: 154px;
+    }
+
+    .proof-item strong {
+      display: block;
+      font-size: 2.1rem;
+      line-height: 1;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+
+    .proof-item span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 40px;
+      align-items: stretch;
+    }
+
+    .statement {
+      background: var(--paper-2);
+      border: 1px solid var(--line);
+      padding: 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .statement p {
+      margin: 0 0 20px;
+      color: var(--ink-2);
+      font-size: 1.08rem;
+    }
+
+    .statement p:last-child {
+      margin-bottom: 0;
+    }
+
+    .focus-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .focus-card {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 14px;
+      align-items: start;
+      padding: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255, 250, 241, 0.72);
+    }
+
+    .icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius);
+      display: grid;
+      place-items: center;
+      background: var(--ink);
+      color: var(--amber);
+    }
+
+    .focus-card h3,
+    .case-panel h3,
+    .project-card h3,
+    .timeline-card h3 {
+      margin: 0 0 7px;
+      line-height: 1.15;
+      font-size: 1.14rem;
+    }
+
+    .focus-card p,
+    .case-panel p,
+    .project-card p,
+    .timeline-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .case-shell {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 26px;
+      align-items: stretch;
+    }
+
+    .case-visual {
+      min-height: 520px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background:
+        linear-gradient(180deg, rgba(184, 226, 201, 0.14), rgba(255, 255, 255, 0.03)),
+        var(--ink-2);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .product-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      align-self: flex-start;
+      padding: 10px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: var(--radius);
+      color: rgba(255, 255, 255, 0.82);
+      font-weight: 700;
+    }
+
+    .phone-frame {
+      width: min(280px, 100%);
+      margin: 28px auto;
+      border: 10px solid #0c1f1a;
+      border-radius: 34px;
+      background: #f4fbf7;
+      overflow: hidden;
+      box-shadow: 0 22px 70px rgba(0, 0, 0, 0.36);
+    }
+
+    .phone-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 18px;
+      color: #1b4332;
+      font-weight: 900;
+      border-bottom: 1px solid #dbece3;
+    }
+
+    .phone-content {
+      padding: 18px;
+      color: var(--ink);
+    }
+
+    .phone-balance {
+      padding: 18px;
+      background: #1b4332;
+      color: var(--white);
+      border-radius: 8px;
+      margin-bottom: 14px;
+    }
+
+    .phone-balance small {
+      display: block;
+      color: #b8e2c9;
+      margin-bottom: 6px;
+    }
+
+    .phone-balance strong {
+      font-size: 1.5rem;
+    }
+
+    .mini-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      padding: 12px 0;
+      border-bottom: 1px solid #dbece3;
+      font-size: 0.9rem;
+    }
+
+    .mini-row span:last-child {
+      font-weight: 900;
+    }
+
+    .case-visual-note {
+      color: rgba(255, 255, 255, 0.68);
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .case-panel {
+      padding: 22px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      min-height: 210px;
+    }
+
+    .case-panel h3 {
+      color: var(--white);
+    }
+
+    .case-panel p {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.95rem;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      background: rgba(184, 226, 201, 0.16);
+      color: var(--mint);
+      border: 1px solid rgba(184, 226, 201, 0.22);
+    }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .impact-card {
+      background: var(--paper-2);
+      border: 1px solid var(--line);
+      padding: 24px;
+      min-height: 228px;
+    }
+
+    .impact-card h3 {
+      margin: 0 0 12px;
+      font-size: 1.25rem;
+    }
+
+    .impact-card ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      color: var(--muted);
+    }
+
+    .impact-card li {
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .impact-card li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.68em;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--coral);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .skill-group {
+      padding: 24px;
+      background: var(--white);
+      border: 1px solid var(--line);
+    }
+
+    .skill-group h3 {
+      margin: 0 0 16px;
+      font-size: 1.1rem;
+    }
+
+    .skill-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill {
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--paper);
+      color: var(--ink-2);
+      font-weight: 700;
+      font-size: 0.86rem;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+    }
+
+    .project-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      overflow: hidden;
+    }
+
+    .project-card.featured {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      min-height: 390px;
+    }
+
+    .project-media {
+      min-height: 250px;
+      background: var(--ink);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .project-media.finance-shot img {
+      object-position: left top;
+    }
+
+    .project-body {
+      padding: 28px;
+    }
+
+    .project-label {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: var(--green);
+      font-weight: 900;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+    }
+
+    .project-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 18px;
+    }
+
+    .project-stack span {
+      padding: 6px 9px;
+      border-radius: 999px;
+      background: #edf5ef;
+      color: #1b4332;
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .side-projects {
+      display: grid;
+      gap: 18px;
+    }
+
+    .mini-project {
+      display: grid;
+      grid-template-columns: 84px 1fr;
+      gap: 16px;
+      align-items: center;
+      padding: 18px;
+      background: var(--white);
+      border: 1px solid var(--line);
+    }
+
+    .mini-project-icon {
+      width: 84px;
+      height: 84px;
+      border-radius: var(--radius);
+      display: grid;
+      place-items: center;
+      color: var(--white);
+      background: var(--ink);
+      font-size: 2rem;
+    }
+
+    .mini-project h3 {
+      margin: 0 0 6px;
+      font-size: 1.04rem;
+    }
+
+    .mini-project p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1px;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .timeline-card {
+      padding: 24px;
+      background: var(--ink);
+      min-height: 210px;
+    }
+
+    .timeline-step {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--amber);
+      color: var(--ink);
+      font-weight: 900;
+      margin-bottom: 22px;
+    }
+
+    .timeline-card h3 {
+      color: var(--white);
+    }
+
+    .timeline-card p {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.95rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .contact-card,
+    .contact-form {
+      background: var(--white);
+      border: 1px solid var(--line);
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 15px;
+      margin-top: 24px;
+    }
+
+    .contact-link {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 14px;
+      align-items: center;
+      color: var(--ink);
+    }
+
+    .contact-link i {
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius);
+      display: grid;
+      place-items: center;
+      background: var(--paper);
+      color: var(--green);
+    }
+
+    .contact-link span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .field {
+      display: grid;
+      gap: 7px;
+      margin-bottom: 14px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 13px 14px;
+      font: inherit;
+      color: var(--ink);
+      background: var(--paper-2);
+      outline: none;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 4px rgba(27, 107, 75, 0.14);
+    }
+
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .submit-button {
+      width: 100%;
+      border: 0;
+      cursor: pointer;
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .site-footer {
+      background: #0a1714;
+      color: rgba(255, 255, 255, 0.72);
+      padding: 34px 22px;
+    }
+
+    .footer-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .footer-inner strong {
+      color: var(--white);
+    }
+
+    .back-to-top {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--radius);
+      background: var(--ink);
+      color: var(--white);
+      box-shadow: var(--shadow);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+      z-index: 40;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 980px) {
+      .nav-links {
+        display: none;
+      }
+
+      .menu-button {
+        display: grid;
+        place-items: center;
+      }
+
+      .nav.open .nav-links {
+        position: absolute;
+        left: 22px;
+        right: 22px;
+        top: 68px;
+        display: grid;
+        gap: 0;
+        padding: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: var(--radius);
+        background: rgba(16, 40, 32, 0.96);
+      }
+
+      .nav.open .nav-links a {
+        padding: 12px;
+      }
+
+      .nav.open .nav-cta {
+        margin-top: 8px;
+      }
+
+      .proof-grid,
+      .impact-grid,
+      .skills-grid,
+      .timeline {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .about-grid,
+      .case-shell,
+      .project-grid,
+      .contact-grid,
+      .project-card.featured {
+        grid-template-columns: 1fr;
+      }
+
+      .case-visual {
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .hero {
+        min-height: 86vh;
+        background-image:
+          linear-gradient(180deg, rgba(16, 40, 32, 0.52) 0%, rgba(16, 40, 32, 0.94) 62%, rgba(16, 40, 32, 0.98) 100%),
+          url("456706090_550163480856093_6749014266149851661_n.jpg");
+        background-position: center top;
+      }
+
+      .hero-inner {
+        padding-bottom: 64px;
+      }
+
+      .section {
+        padding: 64px 18px;
+      }
+
+      .section-header {
+        display: block;
+      }
+
+      .section-text {
+        margin-top: 14px;
+      }
+
+      .proof-grid,
+      .impact-grid,
+      .skills-grid,
+      .case-grid,
+      .timeline,
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .proof-item,
+      .statement,
+      .impact-card,
+      .skill-group,
+      .project-body,
+      .contact-card,
+      .contact-form {
+        padding: 22px;
+      }
+
+      .mini-project {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        display: grid;
+      }
+    }
+  </style>
 </head>
-<body class="bg-gray-900 text-white min-h-screen font-sans">
-    <div id="particles-js"></div>
-    <div class="content">
-        <!-- Header/Navbar -->
-        <header class="glass-effect fixed w-full z-50">
-            <nav class="container mx-auto px-6 py-4">
-                <div class="flex justify-between items-center">
-                    <div class="text-2xl font-bold gradient-text">Josemar Chipandeca</div>
-                    <div class="hidden md:flex space-x-8">
-                        <a href="#about" class="hover:text-blue-400 transition-colors">Sobre</a>
-                        <a href="#skills" class="hover:text-blue-400 transition-colors">Habilidades</a>
-                        <a href="#projects" class="hover:text-blue-400 transition-colors">Projetos</a>
-                        <a href="#contact" class="hover:text-blue-400 transition-colors">Contato</a>
-                    </div>
-                    <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
-                        <i class="fas fa-bars text-2xl"></i>
-                    </button>
-                </div>
-                <!-- Mobile Menu -->
-                <div id="mobile-menu" class="hidden md:hidden mt-4">
-                    <a href="#about" class="block py-2 hover:text-blue-400 transition-colors">Sobre</a>
-                    <a href="#skills" class="block py-2 hover:text-blue-400 transition-colors">Habilidades</a>
-                    <a href="#projects" class="block py-2 hover:text-blue-400 transition-colors">Projetos</a>
-                    <a href="#contact" class="block py-2 hover:text-blue-400 transition-colors">Contato</a>
-                </div>
-            </nav>
-        </header>
-
-        <!-- Hero Section -->
-        <section class="min-h-screen flex items-center justify-center pt-20 px-6">
-            <div class="container mx-auto flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 text-center md:text-left mb-10 md:mb-0">
-                    <h1 class="text-4xl md:text-6xl font-bold mb-4">
-                        Olá, eu sou <span class="gradient-text">Josemar Chipandeca</span>
-                    </h1>
-                    <h2 class="text-2xl md:text-3xl mb-6 text-blue-300">Desenvolvedor Full Stack</h2>
-                    <p class="text-lg mb-8 text-gray-300 max-w-lg">
-                        Transformo ideias em realidade digital com soluções inovadoras.
-                    </p>
-                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center md:justify-start">
-                        <a href="#projects" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors flex items-center justify-center">
-                            <i class="fas fa-project-diagram mr-2"></i> Meus Projetos
-                        </a>
-                        <a href="#contact" class="glass-effect hover:bg-gray-800 px-6 py-3 rounded-lg transition-colors flex items-center justify-center">
-                            <i class="fas fa-paper-plane mr-2"></i> Entre em Contato
-                        </a>
-                    </div>
-                </div>
-                <div class="md:w-1/2 flex justify-center">
-                    <img src="456706090_550163480856093_6749014266149851661_n.jpg" 
-                         alt="Josemar Chipandeca" 
-                         class="rounded-full w-64 h-64 md:w-80 md:h-80 object-cover border-4 border-blue-500 shadow-lg floating">
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="py-20 bg-gray-800">
-            <div class="container mx-auto px-6">
-                <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Sobre Mim</h2>
-                <div class="flex flex-col md:flex-row items-center">
-                    <div class="md:w-1/3 mb-10 md:mb-0 flex justify-center">
-                        <img src="https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
-                             alt="Josemar trabalhando" 
-                             class="rounded-lg w-full max-w-md h-auto object-cover shadow-xl">
-                    </div>
-                    <div class="md:w-2/3 md:pl-12">
-                        <h3 class="text-2xl font-semibold mb-4">Quem sou eu?</h3>
-                        <p class="text-gray-300 mb-6 text-lg leading-relaxed">
-                            Sou um desenvolvedor full stack apaixonado por tecnologia, com experiência em criar soluções web e mobile eficientes. Minha jornada na programação começou há mais de 3 anos e, desde então, tenho trabalhado em diversos projetos desafiadores.
-                        </p>
-                        <p class="text-gray-300 mb-8 text-lg leading-relaxed">
-                           Acredito na importância de unir desempenho e usabilidade, sempre buscando oferecer a melhor experiência possível para o usuário final. Sou organizado, criativo e comprometido com a qualidade do meu trabalho.
-                        </p>
-                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                            <div class="glass-effect p-4 rounded-lg">
-                                <div class="text-blue-400 text-2xl mb-2">
-                                    <i class="fas fa-code"></i>
-                                </div>
-                                <h4 class="font-semibold mb-1">Código Limpo</h4>
-                                <p class="text-sm text-gray-300">Código bem estruturado e documentado</p>
-                            </div>
-                            <div class="glass-effect p-4 rounded-lg">
-                                <div class="text-green-400 text-2xl mb-2">
-                                    <i class="fas fa-mobile-alt"></i>
-                                </div>
-                                <h4 class="font-semibold mb-1">Responsivo</h4>
-                                <p class="text-sm text-gray-300">Designs que funcionam em qualquer dispositivo</p>
-                            </div>
-                            <div class="glass-effect p-4 rounded-lg">
-                                <div class="text-purple-400 text-2xl mb-2">
-                                    <i class="fas fa-rocket"></i>
-                                </div>
-                                <h4 class="font-semibold mb-1">Performance</h4>
-                                <p class="text-sm text-gray-300">Aplicações rápidas e otimizadas</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="py-20">
-            <div class="container mx-auto px-6">
-                <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Minhas Habilidades</h2>
-                
-                <div class="mb-16">
-                    <h3 class="text-2xl font-semibold mb-6">Frontend</h3>
-                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-                        <div class="glass-effect p-6 rounded-lg flex flex-col items-center card-hover">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="w-16 h-16 mb-3" alt="React" />
-                            <span class="font-medium">React</span>
-                        </div>
-                        <div class="glass-effect p-6 rounded-lg flex flex-col items-center card-hover">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" class="w-16 h-16 mb-3" alt="Vue" />
-                            <span class="font-medium">Vue.js</span>
-                        </div>
-                        <div class="glass-effect p-6 rounded-lg flex flex-col items-center card-hover">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" class="w-16 h-16 mb-3" alt="Angular" />
-                            <span class="font-medium">Angular</span>
-                        </div>
-                        <div class="glass-effect p-6 rounded-lg flex flex-col items-center card-hover">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="w-16 h-16 mb-3" alt="JavaScript" />
-                            <span class="font-medium">JavaScript</span>
-                        </div>
-                        <div class="glass-effect p-6 rounded-lg flex flex-col items-center card-hover">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" class="w-16 h-16 mb-3" alt="TypeScript" />
-                            <span class="font-medium">TypeScript</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="mb-16">
-                    <h3 class="text-2xl font-semibold mb-6">Backend</h3>
-                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-                        <div class="glass-effect p-6 rounded-lg flex flex-col items-center card-hover">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" class="w-16 h-16 mb-3" alt="Node.js" />
-                            <span class="font-medium">Node.js</span>
-                        </div>
-                        <div class="glass-effect p-6 rounded-lg flex flex-col items-center card-hover">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="w-16 h-16 mb-3" alt="Python" />
-                            <span class="font-medium">Python</span>
-                        </div>
-                        <div class="glass-effect p-6 rounded-lg flex flex-col items-center card-hover">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" class="w-16 h-16 mb-3" alt="Django" />
-                            <span class="font-medium">Django</span>
-                        </div>
-                        <div class="glass-effect p-6 rounded-lg flex flex-col items-center card-hover">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" class="w-16 h-16 mb-3" alt="PHP" />
-                            <span class="font-medium">PHP</span>
-                        </div>
-                        <div class="glass-effect p-6 rounded-lg flex flex-col items-center card-hover">
-                            <img src="laravel-featured.avif" class="w-16 h-16 mb-3" alt="Laravel" />
-                            <span class="font-medium">Laravel</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div>
-                    <h3 class="text-2xl font-semibold mb-6">Banco de Dados & Outros</h3>
-                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-                        <div class="glass-effect p-6 rounded-lg flex flex-col items-center card-hover">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" class="w-16 h-16 mb-3" alt="MongoDB" />
-                            <span class="font-medium">MongoDB</span>
-                        </div>
-                        <div class="glass-effect p-6 rounded-lg flex flex-col items-center card-hover">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" class="w-16 h-16 mb-3" alt="MySQL" />
-                            <span class="font-medium">MySQL</span>
-                        </div>
-                        <div class="glass-effect p-6 rounded-lg flex flex-col items-center card-hover">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" class="w-16 h-16 mb-3" alt="PostgreSQL" />
-                            <span class="font-medium">PostgreSQL</span>
-                        </div>
-                        <div class="glass-effect p-6 rounded-lg flex flex-col items-center card-hover">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" class="w-16 h-16 mb-3" alt="Docker" />
-                            <span class="font-medium">Docker</span>
-                        </div>
-                        <div class="glass-effect p-6 rounded-lg flex flex-col items-center card-hover">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" class="w-16 h-16 mb-3" alt="Git" />
-                            <span class="font-medium">Git</span>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="py-20 bg-gray-800">
-            <div class="container mx-auto px-6">
-                <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Meus Projetos</h2>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Project 1 -->
-                    <div class="glass-effect rounded-xl overflow-hidden card-hover">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
-                             alt="Projeto 1" 
-                             class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-2xl font-bold mb-2">Sistema de Gestão Empresarial</h3>
-                            <p class="text-gray-300 mb-4">Um sistema completo para gestão de empresas, com módulos financeiros, RH e vendas.</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="bg-blue-900 text-blue-300 px-3 py-1 rounded-full text-xs">React</span>
-                                <span class="bg-green-900 text-green-300 px-3 py-1 rounded-full text-xs">Node.js</span>
-                                <span class="bg-purple-900 text-purple-300 px-3 py-1 rounded-full text-xs">MongoDB</span>
-                            </div>
-                            <div class="flex space-x-3">
-                                <a href="#" class="text-blue-400 hover:text-blue-300 transition-colors">
-                                    <i class="fas fa-link"></i> Demo
-                                </a>
-                                <a href="#" class="text-green-400 hover:text-green-300 transition-colors">
-                                    <i class="fab fa-github"></i> Código
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Project 2 -->
-                    <div class="glass-effect rounded-xl overflow-hidden card-hover">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
-                             alt="Projeto 2" 
-                             class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-2xl font-bold mb-2">Plataforma de E-learning</h3>
-                            <p class="text-gray-300 mb-4">Plataforma educacional com cursos online, sistema de avaliação e certificação digital.</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="bg-orange-900 text-orange-300 px-3 py-1 rounded-full text-xs">Angular</span>
-                                <span class="bg-yellow-900 text-yellow-300 px-3 py-1 rounded-full text-xs">Python</span>
-                                <span class="bg-red-900 text-red-300 px-3 py-1 rounded-full text-xs">Django</span>
-                            </div>
-                            <div class="flex space-x-3">
-                                <a href="#" class="text-blue-400 hover:text-blue-300 transition-colors">
-                                    <i class="fas fa-link"></i> Demo
-                                </a>
-                                <a href="#" class="text-green-400 hover:text-green-300 transition-colors">
-                                    <i class="fab fa-github"></i> Código
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Project 3 -->
-                    <div class="glass-effect rounded-xl overflow-hidden card-hover">
-                        <img src="Captura de Ecrã (38).png" 
-                             alt="Projeto 3" 
-                             class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-2xl font-bold mb-2">Plataforma de Finanças Pessoais</h3>
-                            <p class="text-gray-300 mb-4">Plataforma web para controle financeiro pessoal com gráficos e relatórios inteligentes.</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="bg-indigo-900 text-indigo-300 px-3 py-1 rounded-full text-xs">React Native</span>
-                                <span class="bg-teal-900 text-teal-300 px-3 py-1 rounded-full text-xs">MySQL </span>
-                                <span class="bg-pink-900 text-pink-300 px-3 py-1 rounded-full text-xs">Redux</span>
-                            </div>
-                            <div class="flex space-x-3">
-                                <a href="#" class="text-blue-400 hover:text-blue-300 transition-colors">
-                                    <i class="fas fa-link"></i> App Store
-                                </a>
-                                <a href="#" class="text-green-400 hover:text-green-300 transition-colors">
-                                    <i class="fab fa-github"></i> Código
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Project 4 -->
-                    <div class="glass-effect rounded-xl overflow-hidden card-hover">
-                        <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
-                             alt="Projeto 4" 
-                             class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-2xl font-bold mb-2">Blog de Tecnologia</h3>
-                            <p class="text-gray-300 mb-4">Blog moderno com sistema de autenticação, comentários e painel administrativo.</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="bg-blue-900 text-blue-300 px-3 py-1 rounded-full text-xs">Vue.js</span>
-                                <span class="bg-rose-900 text-rose-300 px-3 py-1 rounded-full text-xs">Nuxt.js</span>
-                                <span class="bg-gray-900 text-gray-300 px-3 py-1 rounded-full text-xs">Tailwind</span>
-                            </div>
-                            <div class="flex space-x-3">
-                                <a href="#" class="text-blue-400 hover:text-blue-300 transition-colors">
-                                    <i class="fas fa-link"></i> Demo
-                                </a>
-                                <a href="#" class="text-green-400 hover:text-green-300 transition-colors">
-                                    <i class="fab fa-github"></i> Código
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Project 5 -->
-                    <div class="glass-effect rounded-xl overflow-hidden card-hover">
-                        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
-                             alt="Projeto 5" 
-                             class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-2xl font-bold mb-2">E-commerce Completo</h3>
-                            <p class="text-gray-300 mb-4">Loja virtual com carrinho de compras, checkout e integração com pagamentos.</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="bg-amber-900 text-amber-300 px-3 py-1 rounded-full text-xs">Laravel</span>
-                                <span class="bg-emerald-900 text-emerald-300 px-3 py-1 rounded-full text-xs">MySQL</span>
-                                <span class="bg-cyan-900 text-cyan-300 px-3 py-1 rounded-full text-xs">Algolia</span>
-                            </div>
-                            <div class="flex space-x-3">
-                                <a href="#" class="text-blue-400 hover:text-blue-300 transition-colors">
-                                    <i class="fas fa-link"></i> Demo
-                                </a>
-                                <a href="#" class="text-green-400 hover:text-green-300 transition-colors">
-                                    <i class="fab fa-github"></i> Código
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Project 6 -->
-                    <div class="glass-effect rounded-xl overflow-hidden card-hover">
-                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
-                             alt="Projeto 6" 
-                             class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-2xl font-bold mb-2">Sistema de Ticket</h3>
-                            <p class="text-gray-300 mb-4">Sistema para gerenciamento de chamados técnicos com priorização e escalonamento.</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="bg-sky-900 text-sky-300 px-3 py-1 rounded-full text-xs">TypeScript</span>
-                                <span class="bg-violet-900 text-violet-300 px-3 py-1 rounded-full text-xs">NestJS</span>
-                                <span class="bg-blue-900 text-blue-300 px-3 py-1 rounded-full text-xs">PostgreSQL</span>
-                            </div>
-                            <div class="flex space-x-3">
-                                <a href="#" class="text-blue-400 hover:text-blue-300 transition-colors">
-                                    <i class="fas fa-link"></i> Demo
-                                </a>
-                                <a href="#" class="text-green-400 hover:text-green-300 transition-colors">
-                                    <i class="fab fa-github"></i> Código
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="text-center mt-12">
-                    <a href="#" class="inline-flex items-center justify-center px-6 py-3 border border-blue-500 text-blue-400 rounded-lg hover:bg-blue-900 hover:text-white transition-colors">
-                        <i class="fab fa-github mr-2"></i> Veja mais no GitHub
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="py-20">
-            <div class="container mx-auto px-6">
-                <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Entre em Contato</h2>
-                
-                <div class="flex flex-col lg:flex-row gap-12">
-                    <div class="lg:w-1/2">
-                        <div class="glass-effect p-8 rounded-xl">
-                            <h3 class="text-2xl font-semibold mb-6">Envie sua mensagem</h3>
-                            
-                           <!-- Formulário -->
-<form action="https://formsubmit.co/josemarchipandeca@gmail.com" method="POST" class="space-y-6">
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <div>
-                                        <label for="name" class="block text-sm font-medium mb-2">Nome</label>
-                                        <input type="text" id="name" name="name" required 
-                                               class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                    </div>
-                                    <div>
-                                        <label for="email" class="block text-sm font-medium mb-2"></label>
-                                        <input type="hidden" name="_captcha" value="false">
-
-                                    </div>
-                                </div>
-                                <div>
-                                    <label for="subject" class="block text-sm font-medium mb-2">Assunto</label>
-                                    <input type="text" id="subject" name="subject" required 
-                                           class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                </div>
-                                <div>
-                                    <label for="message" class="block text-sm font-medium mb-2">Mensagem</label>
-                                    <textarea id="message" name="message" rows="5" required 
-                                              class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-                                </div>
-                                <button type="submit" 
-                                        class="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors flex items-center justify-center">
-                                    <i class="fas fa-paper-plane mr-2"></i> Enviar Mensagem
-                                </button>
-                            </form>
-
-                        </div>
-                    </div>
-                    
-                    <div class="lg:w-1/2">
-                        <div class="glass-effect p-8 rounded-xl h-full">
-                            <h3 class="text-2xl font-semibold mb-6">Informações para Contato</h3>
-                            
-                            <div class="space-y-6">
-                                <div class="flex items-start">
-                                    <div class="text-blue-400 text-xl mr-5 mt-1">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-semibold mb-1">Localização</h4>
-                                        <p class="text-gray-300">Angola, Luanda</p>
-                                    </div>
-                                </div>
-                                
-                                <div class="flex items-start">
-                                    <div class="text-green-400 text-xl mr-5 mt-1">
-                                        <i class="fas fa-envelope"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-semibold mb-1">Email</h4>
-                                        <p class="text-gray-300">josemarchipandeca@gmail.com</p>
-                                    </div>
-                                </div>
-                                
-                                <div class="flex items-start">
-                                    <div class="text-purple-400 text-xl mr-5 mt-1">
-                                        <i class="fas fa-phone-alt"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-semibold mb-1">Telefone</h4>
-                                        <p class="text-gray-300">+244 933 525 840</p>
-                                    </div>
-                                </div>
-                                
-                                <div class="flex items-start">
-                                    <div class="text-amber-400 text-xl mr-5 mt-1">
-                                        <i class="fas fa-clock"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-semibold mb-1">Horário Comercial</h4>
-                                        <p class="text-gray-300">Seg-Sex: 9:00 - 18:00</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="mt-10">
-                                <h4 class="font-semibold mb-4">Redes Sociais</h4>
-                                <div class="flex space-x-4">
-                                    <a href="https://www.facebook.com/leo.jorge.5454" class="w-12 h-12 rounded-full bg-blue-900 flex items-center justify-center hover:bg-blue-800 transition-colors">
-                                        <i class="fab fa-facebook-f text-xl"></i>
-                                    </a>
-                                    <a href="https://www.instagram.com/josemarchipandeca/" class="w-12 h-12 rounded-full bg-gradient-to-r from-pink-600 to-purple-600 flex items-center justify-center hover:opacity-90 transition-opacity">
-                                        <i class="fab fa-instagram text-xl"></i>
-                                   
-                                    <a href="https://github.com/Josemar4149N" class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center hover:bg-gray-700 transition-colors">
-                                        <i class="fab fa-github text-xl"></i>
-                                    </a>
-                                    <a href="https://www.linkedin.com/in/josemar-chipandeca-231547200/" class="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center hover:bg-blue-700 transition-colors">
-                                        <i class="fab fa-linkedin-in text-xl"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="bg-gray-900 border-t border-gray-800 py-10">
-            <div class="container mx-auto px-6">
-                <div class="flex flex-col md:flex-row justify-between items-center">
-                    <div class="text-2xl font-bold gradient-text mb-4 md:mb-0">Josemar Chipandeca</div>
-                    <div class="text-gray-400 text-center md:text-right">
-                        <p>&copy; 2023 Todos os direitos reservados</p>
-                        <p class="text-sm mt-1">Desenvolvido com <i class="fas fa-heart text-red-500"></i> por Josemar Chipandeca</p>
-                    </div>
-                </div>
-            </div>
-        </footer>
-
-        <!-- Back to Top Button -->
-        <a href="#" id="backToTop" class="fixed bottom-6 right-6 bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center opacity-0 invisible transition-all duration-300">
-            <i class="fas fa-arrow-up"></i>
+<body>
+  <a class="skip-link" href="#main">Saltar para o conteúdo</a>
+  <div class="page-shell">
+    <header class="site-header" aria-label="Cabecalho">
+      <nav class="nav" id="siteNav">
+        <a class="brand" href="#top" aria-label="Josemar Chipandeca">
+          <span class="brand-mark">JC</span>
+          <span>Josemar Chipandeca</span>
         </a>
-    </div>
 
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        // Mobile menu toggle
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
+        <div class="nav-links" id="navLinks">
+          <a href="#sobre">Sobre</a>
+          <a href="#kwanzasmart">Kwanza Smart</a>
+          <a href="#competencias">Competências</a>
+          <a href="#projetos">Projetos</a>
+          <a href="#contacto" class="nav-cta"><i class="fa-solid fa-paper-plane"></i> Contacto</a>
+        </div>
 
-        // Back to top button
-        const backToTopButton = document.getElementById('backToTop');
-        window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.remove('opacity-0', 'invisible');
-                backToTopButton.classList.add('opacity-100', 'visible');
-            } else {
-                backToTopButton.classList.remove('opacity-100', 'visible');
-                backToTopButton.classList.add('opacity-0', 'invisible');
-            }
-        });
+        <button class="menu-button" id="menuButton" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Abrir menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </nav>
+    </header>
 
-        // Smooth scrolling for all links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-                
-                // Close mobile menu if open
-                const mobileMenu = document.getElementById('mobile-menu');
-                if (!mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
-                }
-            });
-        });
+    <main id="main">
+      <section class="hero" id="top" aria-label="Josemar Chipandeca">
+        <div class="hero-inner">
+          <p class="eyebrow">Full stack product engineer em Luanda</p>
+          <h1>Josemar Chipandeca</h1>
+          <p class="hero-lede">
+            Construo produtos web, mobile e APIs que saem do protótipo e entram na vida real. O meu trabalho recente junta React Native, Next.js, NestJS, Prisma, Supabase e IA aplicada para resolver problemas financeiros em Angola.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#kwanzasmart"><i class="fa-solid fa-layer-group"></i> Ver case principal</a>
+            <a class="button secondary" href="mailto:josemarchipandeca@gmail.com"><i class="fa-solid fa-envelope"></i> Falar comigo</a>
+          </div>
+        </div>
+      </section>
 
-        // Form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Here you would normally send the form data to a server
-            alert('Mensagem enviada com sucesso! Entrarei em contato em breve.');
-            this.reset();
-        });
+      <section class="section compact" aria-label="Resumo">
+        <div class="container">
+          <div class="proof-grid">
+            <div class="proof-item">
+              <strong>3</strong>
+              <span>frentes de produto: mobile, web e API, ligadas por uma mesma experiência.</span>
+            </div>
+            <div class="proof-item">
+              <strong>IA</strong>
+              <span>assistente financeiro com consentimento, contexto de dados e respostas controladas.</span>
+            </div>
+            <div class="proof-item">
+              <strong>OAuth</strong>
+              <span>login com Google, Apple, email, JWT, refresh e recuperação de senha.</span>
+            </div>
+            <div class="proof-item">
+              <strong>Prod</strong>
+              <span>decisões pensadas para utilizadores reais, suporte, privacidade e revisão da Apple.</span>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        // Particles.js background
-        particlesJS("particles-js", {
-            "particles": {
-                "number": {
-                    "value": 80,
-                    "density": {
-                        "enable": true,
-                        "value_area": 800
-                    }
-                },
-                "color": {
-                    "value": "#3b82f6"
-                },
-                "shape": {
-                    "type": "circle",
-                    "stroke": {
-                        "width": 0,
-                        "color": "#000000"
-                    },
-                    "polygon": {
-                        "nb_sides": 5
-                    }
-                },
-                "opacity": {
-                    "value": 0.5,
-                    "random": false,
-                    "anim": {
-                        "enable": false,
-                        "speed": 1,
-                        "opacity_min": 0.1,
-                        "sync": false
-                    }
-                },
-                "size": {
-                    "value": 3,
-                    "random": true,
-                    "anim": {
-                        "enable": false,
-                        "speed": 40,
-                        "size_min": 0.1,
-                        "sync": false
-                    }
-                },
-                "line_linked": {
-                    "enable": true,
-                    "distance": 150,
-                    "color": "#3b82f6",
-                    "opacity": 0.2,
-                    "width": 1
-                },
-                "move": {
-                    "enable": true,
-                    "speed": 2,
-                    "direction": "none",
-                    "random": false,
-                    "straight": false,
-                    "out_mode": "out",
-                    "bounce": false,
-                    "attract": {
-                        "enable": false,
-                        "rotateX": 600,
-                        "rotateY": 1200
-                    }
-                }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": {
-                    "onhover": {
-                        "enable": true,
-                        "mode": "grab"
-                    },
-                    "onclick": {
-                        "enable": true,
-                        "mode": "push"
-                    },
-                    "resize": true
-                },
-                "modes": {
-                    "grab": {
-                        "distance": 140,
-                        "line_linked": {
-                            "opacity": 1
-                        }
-                    },
-                    "bubble": {
-                        "distance": 400,
-                        "size": 40,
-                        "duration": 2,
-                        "opacity": 8,
-                        "speed": 3
-                    },
-                    "repulse": {
-                        "distance": 200,
-                        "duration": 0.4
-                    },
-                    "push": {
-                        "particles_nb": 4
-                    },
-                    "remove": {
-                        "particles_nb": 2
-                    }
-                }
-            },
-            "retina_detect": true
-        });
-    </script>
+      <section class="section" id="sobre">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <p class="section-kicker">Sobre mim</p>
+              <h2 class="section-title">Eu gosto de construir sistemas completos, não apenas telas bonitas.</h2>
+            </div>
+            <p class="section-text">
+              O meu diferencial é pegar numa ideia, entender o negócio, desenhar o fluxo, implementar a interface, proteger a API e acompanhar os detalhes que aparecem quando pessoas reais usam o produto.
+            </p>
+          </div>
+
+          <div class="about-grid">
+            <div class="statement">
+              <p>
+                Sou desenvolvedor full stack com foco em produtos digitais para o mercado angolano. Trabalho com aplicações mobile, painéis web, APIs, bases de dados, autenticação, notificações, pagamentos, importação de dados e IA aplicada.
+              </p>
+              <p>
+                Na Kwanza Smart, tenho trabalhado como builder de produto: do login com Google e Apple ao fluxo de definição de senha, do Kiko ao consentimento de dados, da experiência Android/iOS aos textos de suporte e conformidade com a App Store.
+              </p>
+              <p>
+                Gosto de produto com substância: código organizado, experiência limpa, regras de negócio claras e uma visão prática de como o utilizador vai sentir cada detalhe.
+              </p>
+            </div>
+
+            <div class="focus-list">
+              <article class="focus-card">
+                <div class="icon-box"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                <div>
+                  <h3>Mobile com experiência real</h3>
+                  <p>React Native/Expo, Android, iOS, teclado, modais, armazenamento seguro e fluxos de autenticação.</p>
+                </div>
+              </article>
+              <article class="focus-card">
+                <div class="icon-box"><i class="fa-solid fa-server"></i></div>
+                <div>
+                  <h3>Backend de produto</h3>
+                  <p>NestJS, Prisma, Supabase/PostgreSQL, JWT, guards, pagamentos, notificações e permissões.</p>
+                </div>
+              </article>
+              <article class="focus-card">
+                <div class="icon-box"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                <div>
+                  <h3>IA util e controlada</h3>
+                  <p>Assistentes com contexto, consentimento, segurança de prompt, respostas sanitizadas e ações confirmáveis.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section dark" id="kwanzasmart">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <p class="section-kicker">Case principal</p>
+              <h2 class="section-title">Kwanza Smart: finanças pessoais com web, mobile, API e Kiko.</h2>
+            </div>
+            <p class="section-text">
+              Um produto financeiro completo exige mais do que CRUD. Exige confiança, clareza, privacidade, suporte e experiência consistente em dispositivos diferentes.
+            </p>
+          </div>
+
+          <div class="case-shell">
+            <div class="case-visual">
+              <span class="product-badge"><i class="fa-solid fa-wallet"></i> Kwanza Smart</span>
+              <div class="phone-frame" aria-label="Mockup de interface da Kwanza Smart">
+                <div class="phone-top">
+                  <span>Kwanza Smart</span>
+                  <i class="fa-solid fa-comment-dots"></i>
+                </div>
+                <div class="phone-content">
+                  <div class="phone-balance">
+                    <small>Saldo do mês</small>
+                    <strong>247 000 Kz</strong>
+                  </div>
+                  <div class="mini-row">
+                    <span>Receitas</span>
+                    <span style="color:#137a42">+60 000 Kz</span>
+                  </div>
+                  <div class="mini-row">
+                    <span>Despesas</span>
+                    <span style="color:#c85242">-29 600 Kz</span>
+                  </div>
+                  <div class="mini-row">
+                    <span>Kiko</span>
+                    <span>ativo</span>
+                  </div>
+                </div>
+              </div>
+              <p class="case-visual-note">
+                Trabalho pensado para o utilizador final: registar, entender, corrigir, exportar, pedir ajuda ao Kiko e manter os dados protegidos.
+              </p>
+            </div>
+
+            <div class="case-grid">
+              <article class="case-panel">
+                <h3>Mobile app</h3>
+                <p>Fluxos para iOS e Android, login social, definição de senha nas definições, modais de acesso, consentimento do Kiko e ajustes de UX como teclado e formulários.</p>
+                <div class="tag-row">
+                  <span class="tag">Expo</span>
+                  <span class="tag">React Native</span>
+                  <span class="tag">SecureStore</span>
+                </div>
+              </article>
+              <article class="case-panel">
+                <h3>Web app</h3>
+                <p>Dashboard, transações, metas, dívidas, importação, relatórios, suporte, definições, estado de pagamentos e experiência autenticada em Next.js.</p>
+                <div class="tag-row">
+                  <span class="tag">Next.js</span>
+                  <span class="tag">React</span>
+                  <span class="tag">Tailwind</span>
+                </div>
+              </article>
+              <article class="case-panel">
+                <h3>API e dados</h3>
+                <p>Backend com autenticação, refresh tokens, guards de plano, perfis, categorias, notificações, pagamentos, consentimento e integração com Supabase.</p>
+                <div class="tag-row">
+                  <span class="tag">NestJS</span>
+                  <span class="tag">Prisma</span>
+                  <span class="tag">PostgreSQL</span>
+                </div>
+              </article>
+              <article class="case-panel">
+                <h3>Kiko IA</h3>
+                <p>Assistente financeiro que conversa sobre dados do utilizador, respeita consentimento, evita promessas sensíveis e ajuda a navegar finanças pessoais.</p>
+                <div class="tag-row">
+                  <span class="tag">OpenAI</span>
+                  <span class="tag">Prompt design</span>
+                  <span class="tag">Privacidade</span>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section white" aria-label="Impacto">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <p class="section-kicker">O que eu entrego</p>
+              <h2 class="section-title">Tecnologia com produto, regra de negócio e cuidado com o utilizador.</h2>
+            </div>
+          </div>
+
+          <div class="impact-grid">
+            <article class="impact-card">
+              <h3>Experiencia de utilizador</h3>
+              <ul>
+                <li>Onboarding com email, Google e Apple.</li>
+                <li>Fluxos claros para senha, sessão e recuperação.</li>
+                <li>Textos de suporte alinhados com o que o app faz.</li>
+              </ul>
+            </article>
+            <article class="impact-card">
+              <h3>Arquitetura e seguranca</h3>
+              <ul>
+                <li>APIs com guards, permissões e dados atualizados.</li>
+                <li>Prisma, migrations e Supabase como base operacional.</li>
+                <li>Tokens, cookies, refresh e armazenamento seguro.</li>
+              </ul>
+            </article>
+            <article class="impact-card">
+              <h3>Produto em producao</h3>
+              <ul>
+                <li>Privacidade e consentimento para uso de IA.</li>
+                <li>Ajustes para App Store e Google Play.</li>
+                <li>Feedback rápido entre bug, código, teste e push.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="competencias">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <p class="section-kicker">Competências</p>
+              <h2 class="section-title">Stack que uso para construir produto de ponta a ponta.</h2>
+            </div>
+            <p class="section-text">
+              Tenho mais valor quando consigo ligar UI, backend, base de dados, IA e operação num fluxo que funciona para o negócio.
+            </p>
+          </div>
+
+          <div class="skills-grid">
+            <article class="skill-group">
+              <h3>Frontend e mobile</h3>
+              <div class="skill-cloud">
+                <span class="skill">React</span>
+                <span class="skill">Next.js</span>
+                <span class="skill">React Native</span>
+                <span class="skill">Expo</span>
+                <span class="skill">TypeScript</span>
+                <span class="skill">Tailwind CSS</span>
+                <span class="skill">Responsive UI</span>
+              </div>
+            </article>
+            <article class="skill-group">
+              <h3>Backend e dados</h3>
+              <div class="skill-cloud">
+                <span class="skill">Node.js</span>
+                <span class="skill">NestJS</span>
+                <span class="skill">Prisma</span>
+                <span class="skill">PostgreSQL</span>
+                <span class="skill">Supabase</span>
+                <span class="skill">JWT</span>
+                <span class="skill">REST APIs</span>
+              </div>
+            </article>
+            <article class="skill-group">
+              <h3>Produto e IA</h3>
+              <div class="skill-cloud">
+                <span class="skill">OpenAI</span>
+                <span class="skill">Prompt design</span>
+                <span class="skill">Consentimento</span>
+                <span class="skill">Apple review</span>
+                <span class="skill">Pagamentos</span>
+                <span class="skill">Notificações</span>
+                <span class="skill">Suporte</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section white" id="projetos">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <p class="section-kicker">Projetos</p>
+              <h2 class="section-title">Projetos que mostram a minha forma de pensar.</h2>
+            </div>
+          </div>
+
+          <div class="project-grid">
+            <article class="project-card featured">
+              <div class="project-media finance-shot">
+                <img src="Captura de Ecrã (38).png" alt="Dashboard financeiro desenvolvido por Josemar">
+              </div>
+              <div class="project-body">
+                <span class="project-label">Produto financeiro</span>
+                <h3>Kwanza Smart e evolução de sistemas financeiros</h3>
+                <p>
+                  A minha experiência mais forte está em produtos financeiros: dashboards, transações, categorias, metas, dívidas, relatórios, IA, autenticação, suporte e regras de acesso. A Kwanza Smart consolidou isso num produto completo com mobile, web e API.
+                </p>
+                <div class="project-stack">
+                  <span>React Native</span>
+                  <span>Next.js</span>
+                  <span>NestJS</span>
+                  <span>Prisma</span>
+                  <span>Supabase</span>
+                  <span>OpenAI</span>
+                </div>
+              </div>
+            </article>
+
+            <div class="side-projects">
+              <article class="mini-project">
+                <div class="mini-project-icon" style="background:#2f6fed"><i class="fa-solid fa-chart-pie"></i></div>
+                <div>
+                  <h3>AngoFin</h3>
+                  <p>Dashboard financeiro com saldo, receitas, despesas, graficos e navegacao administrativa.</p>
+                </div>
+              </article>
+              <article class="mini-project">
+                <div class="mini-project-icon" style="background:#c85242"><i class="fa-brands fa-laravel"></i></div>
+                <div>
+                  <h3>Backend Laravel</h3>
+                  <p>Experiência também com PHP/Laravel para sistemas web, rotas, autenticação e painéis.</p>
+                </div>
+              </article>
+              <article class="mini-project">
+                <div class="mini-project-icon" style="background:#1b6b4b"><i class="fa-solid fa-robot"></i></div>
+                <div>
+                  <h3>Assistentes com IA</h3>
+                  <p>IA aplicada a produto: respostas úteis, limites claros, consentimento e contexto de dados.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section dark" aria-label="Processo">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <p class="section-kicker">Processo</p>
+              <h2 class="section-title">Como eu levo uma melhoria do problema ao push.</h2>
+            </div>
+          </div>
+
+          <div class="timeline">
+            <article class="timeline-card">
+              <div class="timeline-step">1</div>
+              <h3>Entendo o caso</h3>
+              <p>Leio o código, vejo o comportamento real e separo problema técnico de problema de produto.</p>
+            </article>
+            <article class="timeline-card">
+              <div class="timeline-step">2</div>
+              <h3>Escolho o caminho</h3>
+              <p>Uso o padrão existente do projeto para evitar complexidade desnecessária.</p>
+            </article>
+            <article class="timeline-card">
+              <div class="timeline-step">3</div>
+              <h3>Implemento e valido</h3>
+              <p>Ajusto UI, API ou dados, rodo lint/build/test quando faz sentido e olho para o impacto.</p>
+            </article>
+            <article class="timeline-card">
+              <div class="timeline-step">4</div>
+              <h3>Entrego com clareza</h3>
+              <p>Explico o que mudou, o que foi verificado e o que ainda precisa de atenção.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contacto">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <p class="section-kicker">Contacto</p>
+              <h2 class="section-title">Tens uma ideia séria? Vamos transformá-la num produto.</h2>
+            </div>
+            <p class="section-text">
+              Fala comigo para desenvolvimento web, mobile, APIs, automações, produtos com IA ou melhorias em sistemas existentes.
+            </p>
+          </div>
+
+          <div class="contact-grid">
+            <aside class="contact-card">
+              <h3>Josemar Chipandeca</h3>
+              <p class="section-text">
+                Desenvolvedor full stack em Luanda, Angola. Disponível para projetos, colaborações e construção de produtos digitais.
+              </p>
+              <div class="contact-list">
+                <a class="contact-link" href="mailto:josemarchipandeca@gmail.com">
+                  <i class="fa-solid fa-envelope"></i>
+                  <strong>Email<span>josemarchipandeca@gmail.com</span></strong>
+                </a>
+                <a class="contact-link" href="tel:+244933525840">
+                  <i class="fa-solid fa-phone"></i>
+                  <strong>Telefone<span>+244 933 525 840</span></strong>
+                </a>
+                <a class="contact-link" href="https://github.com/Josemar4149N" target="_blank" rel="noreferrer">
+                  <i class="fa-brands fa-github"></i>
+                  <strong>GitHub<span>github.com/Josemar4149N</span></strong>
+                </a>
+                <a class="contact-link" href="https://www.linkedin.com/in/josemar-chipandeca-231547200/" target="_blank" rel="noreferrer">
+                  <i class="fa-brands fa-linkedin-in"></i>
+                  <strong>LinkedIn<span>Josemar Chipandeca</span></strong>
+                </a>
+              </div>
+            </aside>
+
+            <form class="contact-form" action="https://formsubmit.co/josemarchipandeca@gmail.com" method="POST">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_subject" value="Nova mensagem pelo portfolio">
+              <div class="form-grid">
+                <div class="field">
+                  <label for="name">Nome</label>
+                  <input id="name" name="name" type="text" autocomplete="name" required>
+                </div>
+                <div class="field">
+                  <label for="email">Email</label>
+                  <input id="email" name="email" type="email" autocomplete="email" required>
+                </div>
+                <div class="field full">
+                  <label for="subject">Assunto</label>
+                  <input id="subject" name="subject" type="text" required>
+                </div>
+                <div class="field full">
+                  <label for="message">Mensagem</label>
+                  <textarea id="message" name="message" required></textarea>
+                </div>
+              </div>
+              <button class="button submit-button" type="submit">
+                <i class="fa-solid fa-paper-plane"></i> Enviar mensagem
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <strong>Josemar Chipandeca</strong>
+        <span>Full stack product engineer - Luanda, Angola</span>
+        <span>&copy; <span id="year">2026</span> Todos os direitos reservados</span>
+      </div>
+    </footer>
+
+    <a class="back-to-top" id="backToTop" href="#top" aria-label="Voltar ao topo">
+      <i class="fa-solid fa-arrow-up"></i>
+    </a>
+  </div>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Josemar Chipandeca",
+      "jobTitle": "Full Stack Product Engineer",
+      "email": "mailto:josemarchipandeca@gmail.com",
+      "telephone": "+244933525840",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Luanda",
+        "addressCountry": "AO"
+      },
+      "sameAs": [
+        "https://github.com/Josemar4149N",
+        "https://www.linkedin.com/in/josemar-chipandeca-231547200/",
+        "https://www.instagram.com/josemarchipandeca/"
+      ],
+      "knowsAbout": [
+        "React Native",
+        "Next.js",
+        "NestJS",
+        "Prisma",
+        "Supabase",
+        "OpenAI",
+        "Product Engineering"
+      ]
+    }
+  </script>
+  <script>
+    const nav = document.getElementById("siteNav");
+    const menuButton = document.getElementById("menuButton");
+    const backToTop = document.getElementById("backToTop");
+    const year = document.getElementById("year");
+
+    if (year) {
+      year.textContent = new Date().getFullYear().toString();
+    }
+
+    menuButton?.addEventListener("click", () => {
+      const isOpen = nav.classList.toggle("open");
+      menuButton.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+
+    document.querySelectorAll(".nav-links a").forEach((link) => {
+      link.addEventListener("click", () => {
+        nav.classList.remove("open");
+        menuButton?.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 420) {
+        backToTop?.classList.add("visible");
+      } else {
+        backToTop?.classList.remove("visible");
+      }
+    });
+  </script>
 </body>
 </html>
-
