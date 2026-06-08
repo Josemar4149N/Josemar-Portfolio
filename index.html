@@ -354,6 +354,32 @@
 
     .typed-line strong {
       color: var(--ink);
+      display: inline-block;
+      min-width: 1ch;
+      border-bottom: 3px solid var(--green);
+      line-height: 1.12;
+      white-space: nowrap;
+    }
+
+    .typed-line strong::after {
+      content: "";
+      display: inline-block;
+      width: 3px;
+      height: 0.9em;
+      margin-left: 4px;
+      background: var(--green);
+      vertical-align: -0.08em;
+      animation: cursorBlink 0.82s steps(1) infinite;
+    }
+
+    @keyframes cursorBlink {
+      0%, 55% {
+        opacity: 1;
+      }
+
+      56%, 100% {
+        opacity: 0;
+      }
     }
 
     .hero-text {
@@ -1018,7 +1044,7 @@
         <div class="hero-copy reveal">
           <span class="status">Disponível para projetos selecionados</span>
           <h1>Josemar <span>Chipandeca</span></h1>
-          <p class="typed-line">Eu construo <strong id="typedRole">produtos digitais completos</strong>.</p>
+          <p class="typed-line">Eu sou <strong id="typedRole"></strong></p>
           <p class="hero-text">
             Desenvolvedor full stack em Luanda, Angola. Crio aplicações web e mobile, APIs seguras, dashboards, automações e experiências com IA aplicada. O meu foco é transformar ideias em produto utilizável, bonito, organizado e pronto para crescer.
           </p>
@@ -1325,11 +1351,12 @@
 
   <script>
     const roles = [
-      "produtos digitais completos",
-      "interfaces web modernas",
-      "apps mobile úteis",
-      "APIs seguras",
-      "experiências com IA"
+      "Full Stack Developer",
+      "Mobile Developer",
+      "Backend Developer",
+      "Frontend Developer",
+      "Product Engineer",
+      "AI Product Builder"
     ];
 
     const typedRole = document.getElementById("typedRole");
@@ -1340,23 +1367,37 @@
     const themeToggle = document.getElementById("themeToggle");
     const year = document.getElementById("year");
     let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
 
     if (year) year.textContent = new Date().getFullYear().toString();
 
-    setInterval(() => {
-      roleIndex = (roleIndex + 1) % roles.length;
+    function typeRole() {
       if (!typedRole) return;
-      typedRole.animate(
-        [{ opacity: 1, transform: "translateY(0)" }, { opacity: 0, transform: "translateY(-8px)" }],
-        { duration: 160, easing: "ease-out" }
-      ).onfinish = () => {
-        typedRole.textContent = roles[roleIndex];
-        typedRole.animate(
-          [{ opacity: 0, transform: "translateY(8px)" }, { opacity: 1, transform: "translateY(0)" }],
-          { duration: 220, easing: "ease-out" }
-        );
-      };
-    }, 2400);
+
+      const currentRole = roles[roleIndex];
+      charIndex += isDeleting ? -1 : 1;
+      typedRole.textContent = currentRole.slice(0, charIndex);
+
+      if (!isDeleting && charIndex === currentRole.length) {
+        setTimeout(() => {
+          isDeleting = true;
+          typeRole();
+        }, 850);
+        return;
+      }
+
+      if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+        setTimeout(typeRole, 160);
+        return;
+      }
+
+      setTimeout(typeRole, isDeleting ? 28 : 48);
+    }
+
+    typeRole();
 
     window.addEventListener("scroll", () => {
       const max = document.documentElement.scrollHeight - window.innerHeight;
