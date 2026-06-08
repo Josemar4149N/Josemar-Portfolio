@@ -3,29 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio de Josemar Chipandeca, desenvolvedor full stack em Angola especializado em produtos web, mobile, APIs e IA aplicada.">
-  <meta name="theme-color" content="#102820">
-  <title>Josemar Chipandeca - Full Stack Product Engineer</title>
+  <meta name="description" content="Portfolio de Josemar Chipandeca, full stack developer em Angola. Mobile apps, web platforms, APIs, IA aplicada e produtos financeiros.">
+  <meta name="theme-color" content="#0B1220">
+  <title>Josemar Chipandeca | Full Stack Developer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;900&family=IBM+Plex+Mono:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <style>
     :root {
-      --ink: #102820;
-      --ink-2: #1f3b35;
-      --paper: #f7f2e8;
-      --paper-2: #fffaf1;
+      --bg: #f6f2e8;
+      --surface: #fffdf7;
+      --ink: #0b1220;
+      --muted: #65736f;
+      --line: rgba(11, 18, 32, 0.12);
+      --navy: #0b1220;
       --green: #1b6b4b;
-      --mint: #b8e2c9;
-      --amber: #f1a33b;
-      --coral: #c85242;
-      --blue: #2f6fed;
-      --line: rgba(16, 40, 32, 0.14);
-      --muted: #61736c;
-      --white: #ffffff;
-      --shadow: 0 22px 60px rgba(16, 40, 32, 0.16);
+      --mint: #b9f2d0;
+      --amber: #f5a524;
+      --coral: #e45d48;
+      --blue: #2962ff;
+      --violet: #6d5dfc;
       --radius: 8px;
+      --shadow: 0 24px 70px rgba(11, 18, 32, 0.15);
       --max: 1180px;
     }
 
@@ -40,9 +40,25 @@
     body {
       margin: 0;
       font-family: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 12% 10%, rgba(41, 98, 255, 0.11), transparent 28%),
+        radial-gradient(circle at 82% 18%, rgba(245, 165, 36, 0.16), transparent 25%),
+        var(--bg);
       color: var(--ink);
-      background: var(--paper);
       line-height: 1.55;
+    }
+
+    body.dark-mode {
+      --bg: #07100d;
+      --surface: #0f1c18;
+      --ink: #f8fbf8;
+      --muted: #a8b9b1;
+      --line: rgba(255, 255, 255, 0.14);
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.32);
+      background:
+        radial-gradient(circle at 16% 8%, rgba(41, 98, 255, 0.2), transparent 26%),
+        radial-gradient(circle at 88% 20%, rgba(245, 165, 36, 0.16), transparent 23%),
+        var(--bg);
     }
 
     a {
@@ -55,37 +71,49 @@
       max-width: 100%;
     }
 
-    .page-shell {
-      min-height: 100vh;
-      overflow: hidden;
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    .progress-line {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0;
+      background: linear-gradient(90deg, var(--amber), var(--blue), var(--green));
+      z-index: 100;
     }
 
     .skip-link {
       position: absolute;
-      left: 16px;
+      left: 18px;
       top: -80px;
-      z-index: 100;
-      background: var(--ink);
-      color: var(--white);
       padding: 10px 14px;
       border-radius: var(--radius);
+      background: var(--ink);
+      color: var(--surface);
+      z-index: 120;
       transition: top 0.2s ease;
     }
 
     .skip-link:focus {
-      top: 16px;
+      top: 18px;
     }
 
     .site-header {
-      position: fixed;
+      position: sticky;
       top: 0;
-      left: 0;
-      right: 0;
-      z-index: 50;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.16);
-      background: rgba(16, 40, 32, 0.74);
-      color: var(--white);
-      backdrop-filter: blur(14px);
+      z-index: 80;
+      background: rgba(246, 242, 232, 0.82);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(18px);
+    }
+
+    .dark-mode .site-header {
+      background: rgba(7, 16, 13, 0.82);
     }
 
     .nav {
@@ -99,147 +127,196 @@
     }
 
     .brand {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       font-weight: 900;
-      letter-spacing: 0;
       white-space: nowrap;
     }
 
     .brand-mark {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
       display: grid;
       place-items: center;
+      background: var(--navy);
+      color: #fff;
+      box-shadow: inset 0 -8px 0 rgba(245, 165, 36, 0.36);
+    }
+
+    .dark-mode .brand-mark {
       background: var(--amber);
-      color: var(--ink);
-      font-weight: 900;
+      color: #111;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 22px;
-      color: rgba(255, 255, 255, 0.82);
-      font-size: 0.94rem;
+      gap: 8px;
     }
 
-    .nav-links a {
-      transition: color 0.2s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--white);
-    }
-
-    .nav-cta {
+    .nav-links a,
+    .icon-button {
+      min-height: 40px;
+      border-radius: var(--radius);
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 8px;
-      padding: 10px 14px;
-      border-radius: var(--radius);
-      background: var(--white);
+      padding: 9px 12px;
+      border: 1px solid transparent;
+      color: var(--muted);
+      font-weight: 800;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .icon-button:hover {
       color: var(--ink);
-      font-weight: 700;
+      background: rgba(11, 18, 32, 0.06);
+      border-color: var(--line);
+    }
+
+    .dark-mode .nav-links a:hover,
+    .dark-mode .icon-button:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-links .cv-link {
+      background: var(--ink);
+      color: var(--surface);
+      border-color: var(--ink);
+    }
+
+    .nav-links .cv-link:hover {
+      background: var(--green);
+      color: #fff;
+      border-color: var(--green);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .icon-button {
+      width: 42px;
+      padding: 0;
+      background: transparent;
+      cursor: pointer;
     }
 
     .menu-button {
       display: none;
-      width: 42px;
-      height: 42px;
-      border: 1px solid rgba(255, 255, 255, 0.24);
-      border-radius: var(--radius);
-      background: rgba(255, 255, 255, 0.08);
-      color: var(--white);
-      font-size: 1.1rem;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 44px));
+      margin: 0 auto;
     }
 
     .hero {
-      min-height: 88vh;
-      position: relative;
-      display: flex;
-      align-items: flex-end;
-      color: var(--white);
-      background-image:
-        linear-gradient(90deg, rgba(16, 40, 32, 0.94) 0%, rgba(16, 40, 32, 0.72) 42%, rgba(16, 40, 32, 0.22) 100%),
-        url("456706090_550163480856093_6749014266149851661_n.jpg");
-      background-size: cover;
-      background-position: center 30%;
+      min-height: calc(100vh - 72px);
+      display: grid;
+      align-items: center;
+      padding: 72px 0 58px;
     }
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: auto 0 0;
-      height: 130px;
-      background: linear-gradient(0deg, var(--paper), rgba(247, 242, 232, 0));
-      pointer-events: none;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.04fr) minmax(320px, 0.72fr);
+      align-items: center;
+      gap: 42px;
     }
 
-    .hero-inner {
-      width: 100%;
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 118px 22px 82px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .eyebrow {
+    .status-pill {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      margin: 0 0 18px;
-      color: var(--mint);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0;
-      font-size: 0.78rem;
+      gap: 9px;
+      width: fit-content;
+      margin-bottom: 20px;
+      padding: 8px 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.58);
+      color: var(--green);
+      font-weight: 900;
+      font-size: 0.84rem;
     }
 
-    .eyebrow::before {
-      content: "";
-      width: 34px;
-      height: 2px;
-      background: var(--amber);
+    .dark-mode .status-pill {
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .status-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #19c37d;
+      box-shadow: 0 0 0 6px rgba(25, 195, 125, 0.16);
     }
 
     .hero h1 {
-      max-width: 820px;
       margin: 0;
-      font-size: clamp(3.1rem, 8vw, 7.8rem);
+      font-size: clamp(3.2rem, 8.5vw, 7.6rem);
       line-height: 0.92;
-      letter-spacing: 0;
+      letter-spacing: -0.04em;
       font-weight: 900;
     }
 
-    .hero-lede {
-      max-width: 710px;
-      margin: 26px 0 0;
-      color: rgba(255, 255, 255, 0.86);
-      font-size: clamp(1.05rem, 2vw, 1.35rem);
+    .hero h1 span {
+      display: block;
+      color: transparent;
+      -webkit-text-stroke: 1.4px currentColor;
+      color: rgba(11, 18, 32, 0.08);
+    }
+
+    .dark-mode .hero h1 span {
+      color: rgba(255, 255, 255, 0.08);
+    }
+
+    .role-line {
+      margin: 22px 0 0;
+      font-size: clamp(1.25rem, 2.3vw, 2rem);
+      font-weight: 900;
+      color: var(--green);
+    }
+
+    .role-line strong {
+      color: var(--blue);
+    }
+
+    .dark-mode .role-line {
+      color: var(--mint);
+    }
+
+    .hero-copy {
+      max-width: 720px;
+      margin: 20px 0 0;
+      color: var(--muted);
+      font-size: clamp(1.03rem, 1.7vw, 1.2rem);
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 32px;
+      margin-top: 30px;
     }
 
     .button {
+      min-height: 48px;
+      border-radius: var(--radius);
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      min-height: 46px;
-      padding: 12px 17px;
-      border-radius: var(--radius);
-      border: 1px solid transparent;
-      font-weight: 800;
-      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+      padding: 12px 16px;
+      border: 1px solid var(--line);
+      font-weight: 900;
+      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
     }
 
     .button:hover {
@@ -247,557 +324,578 @@
     }
 
     .button.primary {
+      background: var(--ink);
+      color: var(--surface);
+      border-color: var(--ink);
+    }
+
+    .button.primary:hover {
+      background: var(--green);
+      border-color: var(--green);
+      color: #fff;
+    }
+
+    .button.accent {
       background: var(--amber);
+      border-color: var(--amber);
+      color: #17110a;
+    }
+
+    .button.ghost {
+      background: rgba(255, 255, 255, 0.52);
       color: var(--ink);
     }
 
-    .button.secondary {
-      border-color: rgba(255, 255, 255, 0.32);
-      color: var(--white);
+    .dark-mode .button.ghost {
       background: rgba(255, 255, 255, 0.08);
+      color: var(--ink);
+    }
+
+    .hero-panel {
+      position: relative;
+      display: grid;
+      gap: 16px;
+    }
+
+    .portrait-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 18px;
+      min-height: 560px;
+      background: var(--navy);
+      box-shadow: var(--shadow);
+    }
+
+    .portrait-card img {
+      width: 100%;
+      height: 100%;
+      min-height: 560px;
+      object-fit: cover;
+      object-position: center top;
+      filter: saturate(1.08) contrast(1.03);
+    }
+
+    .portrait-overlay {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 18px;
+      padding: 18px;
+      border-radius: 12px;
+      background: rgba(11, 18, 32, 0.72);
+      color: #fff;
+      backdrop-filter: blur(14px);
+    }
+
+    .portrait-overlay strong {
+      display: block;
+      font-size: 1.08rem;
+    }
+
+    .portrait-overlay span {
+      display: block;
+      color: rgba(255, 255, 255, 0.7);
+      margin-top: 4px;
+    }
+
+    .signal-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .signal {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    .signal strong {
+      display: block;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 1.55rem;
+      line-height: 1;
+      color: var(--green);
+    }
+
+    .signal span {
+      display: block;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 0.85rem;
     }
 
     .section {
-      padding: 86px 22px;
-    }
-
-    .section.compact {
-      padding-top: 54px;
-      padding-bottom: 54px;
+      padding: 86px 0;
     }
 
     .section.dark {
-      color: var(--white);
-      background: var(--ink);
+      background: var(--navy);
+      color: #fff;
     }
 
-    .section.white {
-      background: var(--paper-2);
-    }
-
-    .container {
-      max-width: var(--max);
-      margin: 0 auto;
+    .dark-mode .section.dark {
+      background: #050b13;
     }
 
     .section-header {
       display: flex;
       align-items: flex-end;
       justify-content: space-between;
-      gap: 28px;
+      gap: 32px;
       margin-bottom: 34px;
     }
 
-    .section-kicker {
+    .kicker {
       margin: 0 0 10px;
       color: var(--green);
       font-weight: 900;
       text-transform: uppercase;
+      letter-spacing: 0.03em;
       font-size: 0.78rem;
     }
 
-    .dark .section-kicker {
+    .dark .kicker {
       color: var(--amber);
     }
 
     .section-title {
       margin: 0;
-      font-size: clamp(2rem, 4vw, 3.6rem);
-      line-height: 1;
-      letter-spacing: 0;
+      font-size: clamp(2rem, 4.3vw, 4.1rem);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
       font-weight: 900;
     }
 
-    .section-text {
+    .section-copy {
       max-width: 520px;
       margin: 0;
       color: var(--muted);
-      font-size: 1rem;
     }
 
-    .dark .section-text {
-      color: rgba(255, 255, 255, 0.72);
+    .dark .section-copy {
+      color: rgba(255, 255, 255, 0.7);
     }
 
-    .proof-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 1px;
-      border: 1px solid var(--line);
-      background: var(--line);
-      box-shadow: var(--shadow);
-    }
-
-    .proof-item {
-      background: var(--paper-2);
-      padding: 24px;
-      min-height: 154px;
-    }
-
-    .proof-item strong {
-      display: block;
-      font-size: 2.1rem;
-      line-height: 1;
-      color: var(--ink);
-      margin-bottom: 10px;
-    }
-
-    .proof-item span {
-      display: block;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 40px;
-      align-items: stretch;
-    }
-
-    .statement {
-      background: var(--paper-2);
-      border: 1px solid var(--line);
-      padding: 34px;
-      box-shadow: var(--shadow);
-    }
-
-    .statement p {
-      margin: 0 0 20px;
-      color: var(--ink-2);
-      font-size: 1.08rem;
-    }
-
-    .statement p:last-child {
-      margin-bottom: 0;
-    }
-
-    .focus-list {
-      display: grid;
-      gap: 14px;
-    }
-
-    .focus-card {
-      display: grid;
-      grid-template-columns: 44px 1fr;
-      gap: 14px;
-      align-items: start;
-      padding: 18px;
-      border: 1px solid var(--line);
-      background: rgba(255, 250, 241, 0.72);
-    }
-
-    .icon-box {
-      width: 44px;
-      height: 44px;
-      border-radius: var(--radius);
-      display: grid;
-      place-items: center;
-      background: var(--ink);
-      color: var(--amber);
-    }
-
-    .focus-card h3,
-    .case-panel h3,
-    .project-card h3,
-    .timeline-card h3 {
-      margin: 0 0 7px;
-      line-height: 1.15;
-      font-size: 1.14rem;
-    }
-
-    .focus-card p,
-    .case-panel p,
-    .project-card p,
-    .timeline-card p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .case-shell {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 26px;
-      align-items: stretch;
-    }
-
-    .case-visual {
-      min-height: 520px;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      background:
-        linear-gradient(180deg, rgba(184, 226, 201, 0.14), rgba(255, 255, 255, 0.03)),
-        var(--ink-2);
-      padding: 28px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .product-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      align-self: flex-start;
-      padding: 10px 12px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: var(--radius);
-      color: rgba(255, 255, 255, 0.82);
-      font-weight: 700;
-    }
-
-    .phone-frame {
-      width: min(280px, 100%);
-      margin: 28px auto;
-      border: 10px solid #0c1f1a;
-      border-radius: 34px;
-      background: #f4fbf7;
-      overflow: hidden;
-      box-shadow: 0 22px 70px rgba(0, 0, 0, 0.36);
-    }
-
-    .phone-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px 18px;
-      color: #1b4332;
-      font-weight: 900;
-      border-bottom: 1px solid #dbece3;
-    }
-
-    .phone-content {
-      padding: 18px;
-      color: var(--ink);
-    }
-
-    .phone-balance {
-      padding: 18px;
-      background: #1b4332;
-      color: var(--white);
-      border-radius: 8px;
-      margin-bottom: 14px;
-    }
-
-    .phone-balance small {
-      display: block;
-      color: #b8e2c9;
-      margin-bottom: 6px;
-    }
-
-    .phone-balance strong {
-      font-size: 1.5rem;
-    }
-
-    .mini-row {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 10px;
-      padding: 12px 0;
-      border-bottom: 1px solid #dbece3;
-      font-size: 0.9rem;
-    }
-
-    .mini-row span:last-child {
-      font-weight: 900;
-    }
-
-    .case-visual-note {
-      color: rgba(255, 255, 255, 0.68);
-      font-size: 0.95rem;
-      margin: 0;
-    }
-
-    .case-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .case-panel {
-      padding: 22px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      min-height: 210px;
-    }
-
-    .case-panel h3 {
-      color: var(--white);
-    }
-
-    .case-panel p {
-      color: rgba(255, 255, 255, 0.72);
-      font-size: 0.95rem;
-    }
-
-    .tag-row {
+    .filter-bar,
+    .tab-bar {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-top: 16px;
+      margin-bottom: 22px;
     }
 
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      min-height: 28px;
-      padding: 5px 9px;
-      border-radius: 999px;
-      font-size: 0.78rem;
-      font-weight: 800;
-      background: rgba(184, 226, 201, 0.16);
-      color: var(--mint);
-      border: 1px solid rgba(184, 226, 201, 0.22);
-    }
-
-    .impact-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .impact-card {
-      background: var(--paper-2);
+    .filter-button,
+    .tab-button {
+      min-height: 40px;
       border: 1px solid var(--line);
-      padding: 24px;
-      min-height: 228px;
-    }
-
-    .impact-card h3 {
-      margin: 0 0 12px;
-      font-size: 1.25rem;
-    }
-
-    .impact-card ul {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: 10px;
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: var(--surface);
       color: var(--muted);
+      cursor: pointer;
+      font-weight: 900;
     }
 
-    .impact-card li {
-      position: relative;
-      padding-left: 20px;
-    }
-
-    .impact-card li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.68em;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--coral);
-    }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .skill-group {
-      padding: 24px;
-      background: var(--white);
-      border: 1px solid var(--line);
-    }
-
-    .skill-group h3 {
-      margin: 0 0 16px;
-      font-size: 1.1rem;
-    }
-
-    .skill-cloud {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .skill {
-      padding: 8px 10px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: var(--paper);
-      color: var(--ink-2);
-      font-weight: 700;
-      font-size: 0.86rem;
-    }
-
-    .project-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 18px;
-    }
-
-    .project-card {
-      background: var(--white);
-      border: 1px solid var(--line);
-      overflow: hidden;
-    }
-
-    .project-card.featured {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      min-height: 390px;
-    }
-
-    .project-media {
-      min-height: 250px;
+    .filter-button.active,
+    .tab-button.active {
       background: var(--ink);
-      position: relative;
-      overflow: hidden;
+      border-color: var(--ink);
+      color: var(--surface);
     }
 
-    .project-media img {
+    .work-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.85fr;
+      gap: 18px;
+    }
+
+    .work-card {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--surface);
+      box-shadow: 0 16px 50px rgba(11, 18, 32, 0.08);
+      transition: transform 0.22s ease, box-shadow 0.22s ease, opacity 0.22s ease;
+    }
+
+    .work-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .work-card.hidden {
+      display: none;
+    }
+
+    .work-card.featured {
+      grid-template-columns: 0.98fr 1.02fr;
+      min-height: 470px;
+    }
+
+    .work-media {
+      min-height: 260px;
+      background: #dfe8e2;
+    }
+
+    .work-media img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
 
-    .project-media.finance-shot img {
+    .work-media.screen img {
       object-position: left top;
     }
 
-    .project-body {
-      padding: 28px;
+    .work-body {
+      padding: 30px;
     }
 
-    .project-label {
-      display: inline-block;
+    .work-type {
+      display: inline-flex;
       margin-bottom: 12px;
       color: var(--green);
       font-weight: 900;
       text-transform: uppercase;
-      font-size: 0.75rem;
+      font-size: 0.76rem;
     }
 
-    .project-stack {
+    .work-card h3 {
+      margin: 0 0 12px;
+      font-size: clamp(1.5rem, 3vw, 2.3rem);
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    .work-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .stack {
       display: flex;
       flex-wrap: wrap;
       gap: 7px;
       margin-top: 18px;
     }
 
-    .project-stack span {
+    .stack span {
       padding: 6px 9px;
       border-radius: 999px;
-      background: #edf5ef;
-      color: #1b4332;
+      background: rgba(27, 107, 75, 0.1);
+      color: var(--green);
+      font-weight: 900;
       font-size: 0.78rem;
-      font-weight: 800;
     }
 
-    .side-projects {
+    .side-work {
       display: grid;
       gap: 18px;
     }
 
-    .mini-project {
+    .mini-work {
       display: grid;
-      grid-template-columns: 84px 1fr;
+      grid-template-columns: 90px 1fr;
       gap: 16px;
       align-items: center;
       padding: 18px;
-      background: var(--white);
+      border-radius: 16px;
       border: 1px solid var(--line);
+      background: var(--surface);
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
     }
 
-    .mini-project-icon {
-      width: 84px;
-      height: 84px;
-      border-radius: var(--radius);
+    .mini-work:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    .mini-icon,
+    .mini-img {
+      width: 90px;
+      height: 90px;
+      border-radius: 12px;
       display: grid;
       place-items: center;
-      color: var(--white);
-      background: var(--ink);
+      overflow: hidden;
+      color: #fff;
+      background: var(--navy);
       font-size: 2rem;
     }
 
-    .mini-project h3 {
-      margin: 0 0 6px;
-      font-size: 1.04rem;
+    .mini-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
-    .mini-project p {
+    .mini-work h3 {
+      margin: 0 0 6px;
+      line-height: 1.1;
+    }
+
+    .mini-work p {
       margin: 0;
       color: var(--muted);
-      font-size: 0.92rem;
+      font-size: 0.93rem;
     }
 
-    .timeline {
+    .lab-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 1px;
-      background: rgba(255, 255, 255, 0.14);
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .lab-console,
+    .lab-panel {
       border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.05);
+      overflow: hidden;
     }
 
-    .timeline-card {
+    .console-top {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .console-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--coral);
+    }
+
+    .console-dot:nth-child(2) {
+      background: var(--amber);
+    }
+
+    .console-dot:nth-child(3) {
+      background: #19c37d;
+    }
+
+    .console-code {
+      margin: 0;
+      padding: 22px;
+      color: #dfffe9;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.94rem;
+      white-space: pre-wrap;
+    }
+
+    .console-code .dim {
+      color: rgba(223, 255, 233, 0.5);
+    }
+
+    .capability-content {
+      padding: 26px;
+    }
+
+    .capability-content article {
+      display: none;
+    }
+
+    .capability-content article.active {
+      display: block;
+    }
+
+    .capability-content h3 {
+      margin: 0 0 10px;
+      font-size: 1.45rem;
+    }
+
+    .capability-content p {
+      color: rgba(255, 255, 255, 0.72);
+      margin: 0 0 18px;
+    }
+
+    .check-list {
+      display: grid;
+      gap: 10px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .check-list li {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 10px;
+      color: rgba(255, 255, 255, 0.76);
+    }
+
+    .check-list i {
+      color: var(--mint);
+      margin-top: 4px;
+    }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      border: 1px solid var(--line);
+      background: var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .proof-card {
       padding: 24px;
-      background: var(--ink);
-      min-height: 210px;
+      background: var(--surface);
+      min-height: 200px;
     }
 
-    .timeline-step {
-      width: 34px;
-      height: 34px;
+    .proof-card strong {
+      display: block;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 2rem;
+      color: var(--green);
+      margin-bottom: 14px;
+    }
+
+    .proof-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.1rem;
+    }
+
+    .proof-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .cv-section {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .cv-card,
+    .contact-card,
+    .contact-form {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .cv-card {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .cv-icon {
+      width: 76px;
+      height: 76px;
       display: grid;
       place-items: center;
-      border-radius: 50%;
-      background: var(--amber);
-      color: var(--ink);
-      font-weight: 900;
-      margin-bottom: 22px;
+      border-radius: 16px;
+      background: var(--navy);
+      color: #fff;
+      font-size: 2rem;
     }
 
-    .timeline-card h3 {
-      color: var(--white);
+    .cv-card h3,
+    .contact-card h3 {
+      margin: 18px 0 10px;
+      font-size: 1.7rem;
+      line-height: 1;
+      letter-spacing: -0.03em;
     }
 
-    .timeline-card p {
-      color: rgba(255, 255, 255, 0.7);
-      font-size: 0.95rem;
+    .cv-card p,
+    .contact-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .cv-details {
+      display: grid;
+      gap: 12px;
+      padding: 28px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+    }
+
+    .cv-row {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .cv-row:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .cv-row strong {
+      color: var(--green);
+    }
+
+    .cv-row span {
+      color: var(--muted);
     }
 
     .contact-grid {
       display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 24px;
-      align-items: stretch;
+      grid-template-columns: 0.82fr 1.18fr;
+      gap: 22px;
     }
 
     .contact-card,
     .contact-form {
-      background: var(--white);
-      border: 1px solid var(--line);
       padding: 28px;
-      box-shadow: var(--shadow);
     }
 
-    .contact-list {
+    .contact-links {
       display: grid;
-      gap: 15px;
+      gap: 12px;
       margin-top: 24px;
     }
 
     .contact-link {
       display: grid;
-      grid-template-columns: 42px 1fr;
-      gap: 14px;
+      grid-template-columns: 44px 1fr auto;
+      gap: 12px;
       align-items: center;
-      color: var(--ink);
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.4);
     }
 
-    .contact-link i {
-      width: 42px;
-      height: 42px;
-      border-radius: var(--radius);
+    .dark-mode .contact-link {
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .contact-link i:first-child {
+      width: 44px;
+      height: 44px;
       display: grid;
       place-items: center;
-      background: var(--paper);
+      border-radius: var(--radius);
+      background: rgba(27, 107, 75, 0.1);
       color: var(--green);
+    }
+
+    .contact-link strong {
+      display: block;
     }
 
     .contact-link span {
@@ -808,14 +906,13 @@
 
     .form-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 14px;
     }
 
     .field {
       display: grid;
       gap: 7px;
-      margin-bottom: 14px;
     }
 
     .field.full {
@@ -823,7 +920,7 @@
     }
 
     label {
-      font-weight: 800;
+      font-weight: 900;
       font-size: 0.9rem;
     }
 
@@ -833,16 +930,20 @@
       border: 1px solid var(--line);
       border-radius: var(--radius);
       padding: 13px 14px;
-      font: inherit;
       color: var(--ink);
-      background: var(--paper-2);
+      background: rgba(255, 255, 255, 0.52);
       outline: none;
+    }
+
+    .dark-mode input,
+    .dark-mode textarea {
+      background: rgba(255, 255, 255, 0.06);
     }
 
     input:focus,
     textarea:focus {
-      border-color: var(--green);
-      box-shadow: 0 0 0 4px rgba(27, 107, 75, 0.14);
+      border-color: var(--blue);
+      box-shadow: 0 0 0 4px rgba(41, 98, 255, 0.13);
     }
 
     textarea {
@@ -852,29 +953,27 @@
 
     .submit-button {
       width: 100%;
-      border: 0;
-      cursor: pointer;
+      margin-top: 14px;
       background: var(--ink);
-      color: var(--white);
+      color: var(--surface);
+      cursor: pointer;
     }
 
     .site-footer {
-      background: #0a1714;
-      color: rgba(255, 255, 255, 0.72);
-      padding: 34px 22px;
+      padding: 32px 0;
+      border-top: 1px solid var(--line);
     }
 
     .footer-inner {
-      max-width: var(--max);
-      margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 18px;
+      color: var(--muted);
     }
 
     .footer-inner strong {
-      color: var(--white);
+      color: var(--ink);
     }
 
     .back-to-top {
@@ -885,15 +984,15 @@
       height: 46px;
       display: grid;
       place-items: center;
-      border-radius: var(--radius);
+      border-radius: 12px;
       background: var(--ink);
-      color: var(--white);
-      box-shadow: var(--shadow);
+      color: var(--surface);
       opacity: 0;
       visibility: hidden;
       transform: translateY(10px);
       transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
-      z-index: 40;
+      z-index: 70;
+      box-shadow: var(--shadow);
     }
 
     .back-to-top.visible {
@@ -902,103 +1001,129 @@
       transform: translateY(0);
     }
 
-    @media (max-width: 980px) {
-      .nav-links {
-        display: none;
-      }
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
 
-      .menu-button {
-        display: grid;
-        place-items: center;
-      }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-      .nav.open .nav-links {
-        position: absolute;
-        left: 22px;
-        right: 22px;
-        top: 68px;
-        display: grid;
-        gap: 0;
-        padding: 12px;
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        border-radius: var(--radius);
-        background: rgba(16, 40, 32, 0.96);
-      }
-
-      .nav.open .nav-links a {
-        padding: 12px;
-      }
-
-      .nav.open .nav-cta {
-        margin-top: 8px;
-      }
-
-      .proof-grid,
-      .impact-grid,
-      .skills-grid,
-      .timeline {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .about-grid,
-      .case-shell,
-      .project-grid,
-      .contact-grid,
-      .project-card.featured {
+    @media (max-width: 1040px) {
+      .hero-grid,
+      .work-grid,
+      .lab-grid,
+      .cv-section,
+      .contact-grid {
         grid-template-columns: 1fr;
       }
 
-      .case-visual {
-        min-height: auto;
+      .portrait-card,
+      .portrait-card img {
+        min-height: 460px;
+      }
+
+      .proof-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    @media (max-width: 720px) {
-      .hero {
-        min-height: 86vh;
-        background-image:
-          linear-gradient(180deg, rgba(16, 40, 32, 0.52) 0%, rgba(16, 40, 32, 0.94) 62%, rgba(16, 40, 32, 0.98) 100%),
-          url("456706090_550163480856093_6749014266149851661_n.jpg");
-        background-position: center top;
+    @media (max-width: 860px) {
+      .nav-links {
+        position: absolute;
+        left: 22px;
+        right: 22px;
+        top: 70px;
+        display: none;
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: var(--surface);
+        box-shadow: var(--shadow);
       }
 
-      .hero-inner {
-        padding-bottom: 64px;
+      .nav.open .nav-links {
+        display: grid;
+      }
+
+      .nav-links a {
+        justify-content: flex-start;
+      }
+
+      .menu-button {
+        display: inline-flex;
+      }
+
+      .work-card.featured {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .container {
+        width: min(100% - 32px, var(--max));
+      }
+
+      .nav {
+        padding-inline: 16px;
+      }
+
+      .brand span:last-child {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 46px;
+      }
+
+      .hero h1 {
+        font-size: clamp(3.2rem, 17vw, 5.2rem);
+      }
+
+      .hero-actions {
+        display: grid;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .signal-strip,
+      .proof-grid,
+      .form-grid {
+        grid-template-columns: 1fr;
       }
 
       .section {
-        padding: 64px 18px;
+        padding: 64px 0;
       }
 
       .section-header {
         display: block;
       }
 
-      .section-text {
+      .section-copy {
         margin-top: 14px;
       }
 
-      .proof-grid,
-      .impact-grid,
-      .skills-grid,
-      .case-grid,
-      .timeline,
-      .form-grid {
+      .mini-work {
         grid-template-columns: 1fr;
       }
 
-      .proof-item,
-      .statement,
-      .impact-card,
-      .skill-group,
-      .project-body,
-      .contact-card,
-      .contact-form {
-        padding: 22px;
+      .cv-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
       }
 
-      .mini-project {
-        grid-template-columns: 1fr;
+      .contact-link {
+        grid-template-columns: 44px 1fr;
+      }
+
+      .contact-link i:last-child {
+        display: none;
       }
 
       .footer-inner {
@@ -1008,475 +1133,423 @@
   </style>
 </head>
 <body>
+  <div class="progress-line" id="progressLine"></div>
   <a class="skip-link" href="#main">Saltar para o conteúdo</a>
-  <div class="page-shell">
-    <header class="site-header" aria-label="Cabecalho">
-      <nav class="nav" id="siteNav">
-        <a class="brand" href="#top" aria-label="Josemar Chipandeca">
-          <span class="brand-mark">JC</span>
-          <span>Josemar Chipandeca</span>
+
+  <header class="site-header">
+    <nav class="nav" id="siteNav" aria-label="Navegação principal">
+      <a class="brand" href="#top" aria-label="Josemar Chipandeca">
+        <span class="brand-mark">JC</span>
+        <span>Josemar Chipandeca</span>
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#trabalho">Trabalho</a>
+        <a href="#capacidades">Capacidades</a>
+        <a href="#provas">Provas</a>
+        <a href="#cv">CV</a>
+        <a href="#contacto">Contacto</a>
+        <a class="cv-link" href="CV-Josemar-Chipandeca-PT.pdf" download>
+          <i class="fa-solid fa-file-arrow-down"></i> Baixar CV
         </a>
+      </div>
 
-        <div class="nav-links" id="navLinks">
-          <a href="#sobre">Sobre</a>
-          <a href="#kwanzasmart">Kwanza Smart</a>
-          <a href="#competencias">Competências</a>
-          <a href="#projetos">Projetos</a>
-          <a href="#contacto" class="nav-cta"><i class="fa-solid fa-paper-plane"></i> Contacto</a>
-        </div>
-
-        <button class="menu-button" id="menuButton" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Abrir menu">
+      <div class="nav-actions">
+        <button class="icon-button" id="themeToggle" type="button" aria-label="Alternar tema">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <button class="icon-button menu-button" id="menuButton" type="button" aria-label="Abrir menu" aria-controls="navLinks" aria-expanded="false">
           <i class="fa-solid fa-bars"></i>
         </button>
-      </nav>
-    </header>
+      </div>
+    </nav>
+  </header>
 
-    <main id="main">
-      <section class="hero" id="top" aria-label="Josemar Chipandeca">
-        <div class="hero-inner">
-          <p class="eyebrow">Full stack product engineer em Luanda</p>
-          <h1>Josemar Chipandeca</h1>
-          <p class="hero-lede">
-            Construo produtos web, mobile e APIs que saem do protótipo e entram na vida real. O meu trabalho recente junta React Native, Next.js, NestJS, Prisma, Supabase e IA aplicada para resolver problemas financeiros em Angola.
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <div class="status-pill">
+            <span class="status-dot"></span>
+            Disponível para projetos selecionados
+          </div>
+          <h1>Josemar <span>Chipandeca</span></h1>
+          <p class="role-line">Eu construo <strong id="roleWord">produtos digitais completos</strong>.</p>
+          <p class="hero-copy">
+            Sou full stack developer em Luanda. Transformo ideias em software utilizável: mobile apps, dashboards web, APIs seguras, automações e IA aplicada. Não vendo apenas código; entrego produto com fluxo, regra de negócio e experiência.
           </p>
           <div class="hero-actions">
-            <a class="button primary" href="#kwanzasmart"><i class="fa-solid fa-layer-group"></i> Ver case principal</a>
-            <a class="button secondary" href="mailto:josemarchipandeca@gmail.com"><i class="fa-solid fa-envelope"></i> Falar comigo</a>
+            <a class="button accent" href="CV-Josemar-Chipandeca-PT.pdf" download>
+              <i class="fa-solid fa-file-arrow-down"></i> Baixar CV
+            </a>
+            <a class="button primary" href="#trabalho">
+              <i class="fa-solid fa-briefcase"></i> Ver trabalho
+            </a>
+            <a class="button ghost" href="mailto:josemarchipandeca@gmail.com">
+              <i class="fa-solid fa-envelope"></i> Contactar
+            </a>
           </div>
         </div>
-      </section>
 
-      <section class="section compact" aria-label="Resumo">
-        <div class="container">
-          <div class="proof-grid">
-            <div class="proof-item">
-              <strong>3</strong>
-              <span>frentes de produto: mobile, web e API, ligadas por uma mesma experiência.</span>
+        <aside class="hero-panel reveal" aria-label="Resumo profissional">
+          <div class="portrait-card">
+            <img src="456706090_550163480856093_6749014266149851661_n.jpg" alt="Josemar Chipandeca">
+            <div class="portrait-overlay">
+              <strong>Product-minded full stack developer</strong>
+              <span>React Native, Next.js, NestJS, Prisma, Supabase, Laravel e IA aplicada.</span>
             </div>
-            <div class="proof-item">
+          </div>
+          <div class="signal-strip">
+            <div class="signal">
+              <strong data-count="3">0</strong>
+              <span>plataformas: mobile, web e API</span>
+            </div>
+            <div class="signal">
+              <strong data-count="15">0</strong>
+              <span>dias de trial implementado em produto real</span>
+            </div>
+            <div class="signal">
               <strong>IA</strong>
-              <span>assistente financeiro com consentimento, contexto de dados e respostas controladas.</span>
-            </div>
-            <div class="proof-item">
-              <strong>OAuth</strong>
-              <span>login com Google, Apple, email, JWT, refresh e recuperação de senha.</span>
-            </div>
-            <div class="proof-item">
-              <strong>Prod</strong>
-              <span>decisões pensadas para utilizadores reais, suporte, privacidade e revisão da Apple.</span>
+              <span>assistentes com contexto e consentimento</span>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section class="section" id="sobre">
-        <div class="container">
-          <div class="section-header">
-            <div>
-              <p class="section-kicker">Sobre mim</p>
-              <h2 class="section-title">Eu gosto de construir sistemas completos, não apenas telas bonitas.</h2>
-            </div>
-            <p class="section-text">
-              O meu diferencial é pegar numa ideia, entender o negócio, desenhar o fluxo, implementar a interface, proteger a API e acompanhar os detalhes que aparecem quando pessoas reais usam o produto.
-            </p>
-          </div>
-
-          <div class="about-grid">
-            <div class="statement">
-              <p>
-                Sou desenvolvedor full stack com foco em produtos digitais para o mercado angolano. Trabalho com aplicações mobile, painéis web, APIs, bases de dados, autenticação, notificações, pagamentos, importação de dados e IA aplicada.
-              </p>
-              <p>
-                Na Kwanza Smart, tenho trabalhado como builder de produto: do login com Google e Apple ao fluxo de definição de senha, do Kiko ao consentimento de dados, da experiência Android/iOS aos textos de suporte e conformidade com a App Store.
-              </p>
-              <p>
-                Gosto de produto com substância: código organizado, experiência limpa, regras de negócio claras e uma visão prática de como o utilizador vai sentir cada detalhe.
-              </p>
-            </div>
-
-            <div class="focus-list">
-              <article class="focus-card">
-                <div class="icon-box"><i class="fa-solid fa-mobile-screen-button"></i></div>
-                <div>
-                  <h3>Mobile com experiência real</h3>
-                  <p>React Native/Expo, Android, iOS, teclado, modais, armazenamento seguro e fluxos de autenticação.</p>
-                </div>
-              </article>
-              <article class="focus-card">
-                <div class="icon-box"><i class="fa-solid fa-server"></i></div>
-                <div>
-                  <h3>Backend de produto</h3>
-                  <p>NestJS, Prisma, Supabase/PostgreSQL, JWT, guards, pagamentos, notificações e permissões.</p>
-                </div>
-              </article>
-              <article class="focus-card">
-                <div class="icon-box"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-                <div>
-                  <h3>IA util e controlada</h3>
-                  <p>Assistentes com contexto, consentimento, segurança de prompt, respostas sanitizadas e ações confirmáveis.</p>
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section dark" id="kwanzasmart">
-        <div class="container">
-          <div class="section-header">
-            <div>
-              <p class="section-kicker">Case principal</p>
-              <h2 class="section-title">Kwanza Smart: finanças pessoais com web, mobile, API e Kiko.</h2>
-            </div>
-            <p class="section-text">
-              Um produto financeiro completo exige mais do que CRUD. Exige confiança, clareza, privacidade, suporte e experiência consistente em dispositivos diferentes.
-            </p>
-          </div>
-
-          <div class="case-shell">
-            <div class="case-visual">
-              <span class="product-badge"><i class="fa-solid fa-wallet"></i> Kwanza Smart</span>
-              <div class="phone-frame" aria-label="Mockup de interface da Kwanza Smart">
-                <div class="phone-top">
-                  <span>Kwanza Smart</span>
-                  <i class="fa-solid fa-comment-dots"></i>
-                </div>
-                <div class="phone-content">
-                  <div class="phone-balance">
-                    <small>Saldo do mês</small>
-                    <strong>247 000 Kz</strong>
-                  </div>
-                  <div class="mini-row">
-                    <span>Receitas</span>
-                    <span style="color:#137a42">+60 000 Kz</span>
-                  </div>
-                  <div class="mini-row">
-                    <span>Despesas</span>
-                    <span style="color:#c85242">-29 600 Kz</span>
-                  </div>
-                  <div class="mini-row">
-                    <span>Kiko</span>
-                    <span>ativo</span>
-                  </div>
-                </div>
-              </div>
-              <p class="case-visual-note">
-                Trabalho pensado para o utilizador final: registar, entender, corrigir, exportar, pedir ajuda ao Kiko e manter os dados protegidos.
-              </p>
-            </div>
-
-            <div class="case-grid">
-              <article class="case-panel">
-                <h3>Mobile app</h3>
-                <p>Fluxos para iOS e Android, login social, definição de senha nas definições, modais de acesso, consentimento do Kiko e ajustes de UX como teclado e formulários.</p>
-                <div class="tag-row">
-                  <span class="tag">Expo</span>
-                  <span class="tag">React Native</span>
-                  <span class="tag">SecureStore</span>
-                </div>
-              </article>
-              <article class="case-panel">
-                <h3>Web app</h3>
-                <p>Dashboard, transações, metas, dívidas, importação, relatórios, suporte, definições, estado de pagamentos e experiência autenticada em Next.js.</p>
-                <div class="tag-row">
-                  <span class="tag">Next.js</span>
-                  <span class="tag">React</span>
-                  <span class="tag">Tailwind</span>
-                </div>
-              </article>
-              <article class="case-panel">
-                <h3>API e dados</h3>
-                <p>Backend com autenticação, refresh tokens, guards de plano, perfis, categorias, notificações, pagamentos, consentimento e integração com Supabase.</p>
-                <div class="tag-row">
-                  <span class="tag">NestJS</span>
-                  <span class="tag">Prisma</span>
-                  <span class="tag">PostgreSQL</span>
-                </div>
-              </article>
-              <article class="case-panel">
-                <h3>Kiko IA</h3>
-                <p>Assistente financeiro que conversa sobre dados do utilizador, respeita consentimento, evita promessas sensíveis e ajuda a navegar finanças pessoais.</p>
-                <div class="tag-row">
-                  <span class="tag">OpenAI</span>
-                  <span class="tag">Prompt design</span>
-                  <span class="tag">Privacidade</span>
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section white" aria-label="Impacto">
-        <div class="container">
-          <div class="section-header">
-            <div>
-              <p class="section-kicker">O que eu entrego</p>
-              <h2 class="section-title">Tecnologia com produto, regra de negócio e cuidado com o utilizador.</h2>
-            </div>
-          </div>
-
-          <div class="impact-grid">
-            <article class="impact-card">
-              <h3>Experiencia de utilizador</h3>
-              <ul>
-                <li>Onboarding com email, Google e Apple.</li>
-                <li>Fluxos claros para senha, sessão e recuperação.</li>
-                <li>Textos de suporte alinhados com o que o app faz.</li>
-              </ul>
-            </article>
-            <article class="impact-card">
-              <h3>Arquitetura e seguranca</h3>
-              <ul>
-                <li>APIs com guards, permissões e dados atualizados.</li>
-                <li>Prisma, migrations e Supabase como base operacional.</li>
-                <li>Tokens, cookies, refresh e armazenamento seguro.</li>
-              </ul>
-            </article>
-            <article class="impact-card">
-              <h3>Produto em producao</h3>
-              <ul>
-                <li>Privacidade e consentimento para uso de IA.</li>
-                <li>Ajustes para App Store e Google Play.</li>
-                <li>Feedback rápido entre bug, código, teste e push.</li>
-              </ul>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="competencias">
-        <div class="container">
-          <div class="section-header">
-            <div>
-              <p class="section-kicker">Competências</p>
-              <h2 class="section-title">Stack que uso para construir produto de ponta a ponta.</h2>
-            </div>
-            <p class="section-text">
-              Tenho mais valor quando consigo ligar UI, backend, base de dados, IA e operação num fluxo que funciona para o negócio.
-            </p>
-          </div>
-
-          <div class="skills-grid">
-            <article class="skill-group">
-              <h3>Frontend e mobile</h3>
-              <div class="skill-cloud">
-                <span class="skill">React</span>
-                <span class="skill">Next.js</span>
-                <span class="skill">React Native</span>
-                <span class="skill">Expo</span>
-                <span class="skill">TypeScript</span>
-                <span class="skill">Tailwind CSS</span>
-                <span class="skill">Responsive UI</span>
-              </div>
-            </article>
-            <article class="skill-group">
-              <h3>Backend e dados</h3>
-              <div class="skill-cloud">
-                <span class="skill">Node.js</span>
-                <span class="skill">NestJS</span>
-                <span class="skill">Prisma</span>
-                <span class="skill">PostgreSQL</span>
-                <span class="skill">Supabase</span>
-                <span class="skill">JWT</span>
-                <span class="skill">REST APIs</span>
-              </div>
-            </article>
-            <article class="skill-group">
-              <h3>Produto e IA</h3>
-              <div class="skill-cloud">
-                <span class="skill">OpenAI</span>
-                <span class="skill">Prompt design</span>
-                <span class="skill">Consentimento</span>
-                <span class="skill">Apple review</span>
-                <span class="skill">Pagamentos</span>
-                <span class="skill">Notificações</span>
-                <span class="skill">Suporte</span>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section white" id="projetos">
-        <div class="container">
-          <div class="section-header">
-            <div>
-              <p class="section-kicker">Projetos</p>
-              <h2 class="section-title">Projetos que mostram a minha forma de pensar.</h2>
-            </div>
-          </div>
-
-          <div class="project-grid">
-            <article class="project-card featured">
-              <div class="project-media finance-shot">
-                <img src="Captura de Ecrã (38).png" alt="Dashboard financeiro desenvolvido por Josemar">
-              </div>
-              <div class="project-body">
-                <span class="project-label">Produto financeiro</span>
-                <h3>Kwanza Smart e evolução de sistemas financeiros</h3>
-                <p>
-                  A minha experiência mais forte está em produtos financeiros: dashboards, transações, categorias, metas, dívidas, relatórios, IA, autenticação, suporte e regras de acesso. A Kwanza Smart consolidou isso num produto completo com mobile, web e API.
-                </p>
-                <div class="project-stack">
-                  <span>React Native</span>
-                  <span>Next.js</span>
-                  <span>NestJS</span>
-                  <span>Prisma</span>
-                  <span>Supabase</span>
-                  <span>OpenAI</span>
-                </div>
-              </div>
-            </article>
-
-            <div class="side-projects">
-              <article class="mini-project">
-                <div class="mini-project-icon" style="background:#2f6fed"><i class="fa-solid fa-chart-pie"></i></div>
-                <div>
-                  <h3>AngoFin</h3>
-                  <p>Dashboard financeiro com saldo, receitas, despesas, graficos e navegacao administrativa.</p>
-                </div>
-              </article>
-              <article class="mini-project">
-                <div class="mini-project-icon" style="background:#c85242"><i class="fa-brands fa-laravel"></i></div>
-                <div>
-                  <h3>Backend Laravel</h3>
-                  <p>Experiência também com PHP/Laravel para sistemas web, rotas, autenticação e painéis.</p>
-                </div>
-              </article>
-              <article class="mini-project">
-                <div class="mini-project-icon" style="background:#1b6b4b"><i class="fa-solid fa-robot"></i></div>
-                <div>
-                  <h3>Assistentes com IA</h3>
-                  <p>IA aplicada a produto: respostas úteis, limites claros, consentimento e contexto de dados.</p>
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section dark" aria-label="Processo">
-        <div class="container">
-          <div class="section-header">
-            <div>
-              <p class="section-kicker">Processo</p>
-              <h2 class="section-title">Como eu levo uma melhoria do problema ao push.</h2>
-            </div>
-          </div>
-
-          <div class="timeline">
-            <article class="timeline-card">
-              <div class="timeline-step">1</div>
-              <h3>Entendo o caso</h3>
-              <p>Leio o código, vejo o comportamento real e separo problema técnico de problema de produto.</p>
-            </article>
-            <article class="timeline-card">
-              <div class="timeline-step">2</div>
-              <h3>Escolho o caminho</h3>
-              <p>Uso o padrão existente do projeto para evitar complexidade desnecessária.</p>
-            </article>
-            <article class="timeline-card">
-              <div class="timeline-step">3</div>
-              <h3>Implemento e valido</h3>
-              <p>Ajusto UI, API ou dados, rodo lint/build/test quando faz sentido e olho para o impacto.</p>
-            </article>
-            <article class="timeline-card">
-              <div class="timeline-step">4</div>
-              <h3>Entrego com clareza</h3>
-              <p>Explico o que mudou, o que foi verificado e o que ainda precisa de atenção.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="contacto">
-        <div class="container">
-          <div class="section-header">
-            <div>
-              <p class="section-kicker">Contacto</p>
-              <h2 class="section-title">Tens uma ideia séria? Vamos transformá-la num produto.</h2>
-            </div>
-            <p class="section-text">
-              Fala comigo para desenvolvimento web, mobile, APIs, automações, produtos com IA ou melhorias em sistemas existentes.
-            </p>
-          </div>
-
-          <div class="contact-grid">
-            <aside class="contact-card">
-              <h3>Josemar Chipandeca</h3>
-              <p class="section-text">
-                Desenvolvedor full stack em Luanda, Angola. Disponível para projetos, colaborações e construção de produtos digitais.
-              </p>
-              <div class="contact-list">
-                <a class="contact-link" href="mailto:josemarchipandeca@gmail.com">
-                  <i class="fa-solid fa-envelope"></i>
-                  <strong>Email<span>josemarchipandeca@gmail.com</span></strong>
-                </a>
-                <a class="contact-link" href="tel:+244933525840">
-                  <i class="fa-solid fa-phone"></i>
-                  <strong>Telefone<span>+244 933 525 840</span></strong>
-                </a>
-                <a class="contact-link" href="https://github.com/Josemar4149N" target="_blank" rel="noreferrer">
-                  <i class="fa-brands fa-github"></i>
-                  <strong>GitHub<span>github.com/Josemar4149N</span></strong>
-                </a>
-                <a class="contact-link" href="https://www.linkedin.com/in/josemar-chipandeca-231547200/" target="_blank" rel="noreferrer">
-                  <i class="fa-brands fa-linkedin-in"></i>
-                  <strong>LinkedIn<span>Josemar Chipandeca</span></strong>
-                </a>
-              </div>
-            </aside>
-
-            <form class="contact-form" action="https://formsubmit.co/josemarchipandeca@gmail.com" method="POST">
-              <input type="hidden" name="_captcha" value="false">
-              <input type="hidden" name="_subject" value="Nova mensagem pelo portfolio">
-              <div class="form-grid">
-                <div class="field">
-                  <label for="name">Nome</label>
-                  <input id="name" name="name" type="text" autocomplete="name" required>
-                </div>
-                <div class="field">
-                  <label for="email">Email</label>
-                  <input id="email" name="email" type="email" autocomplete="email" required>
-                </div>
-                <div class="field full">
-                  <label for="subject">Assunto</label>
-                  <input id="subject" name="subject" type="text" required>
-                </div>
-                <div class="field full">
-                  <label for="message">Mensagem</label>
-                  <textarea id="message" name="message" required></textarea>
-                </div>
-              </div>
-              <button class="button submit-button" type="submit">
-                <i class="fa-solid fa-paper-plane"></i> Enviar mensagem
-              </button>
-            </form>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="footer-inner">
-        <strong>Josemar Chipandeca</strong>
-        <span>Full stack product engineer - Luanda, Angola</span>
-        <span>&copy; <span id="year">2026</span> Todos os direitos reservados</span>
+        </aside>
       </div>
-    </footer>
+    </section>
 
-    <a class="back-to-top" id="backToTop" href="#top" aria-label="Voltar ao topo">
-      <i class="fa-solid fa-arrow-up"></i>
-    </a>
-  </div>
+    <section class="section" id="trabalho">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <p class="kicker">Trabalho selecionado</p>
+            <h2 class="section-title">Não é um portfolio sobre uma empresa. É sobre o tipo de produto que eu consigo construir.</h2>
+          </div>
+          <p class="section-copy">
+            A Kwanza Smart é o meu case mais completo, mas o portfolio mostra uma capacidade maior: desenhar, implementar e melhorar sistemas com impacto real.
+          </p>
+        </div>
+
+        <div class="filter-bar reveal" aria-label="Filtrar projetos">
+          <button class="filter-button active" type="button" data-filter="all">Todos</button>
+          <button class="filter-button" type="button" data-filter="product">Produto</button>
+          <button class="filter-button" type="button" data-filter="ai">IA</button>
+          <button class="filter-button" type="button" data-filter="backend">Backend</button>
+          <button class="filter-button" type="button" data-filter="finance">Finanças</button>
+        </div>
+
+        <div class="work-grid">
+          <article class="work-card featured reveal" data-tags="product ai backend finance mobile web">
+            <div class="work-media screen">
+              <img src="Captura de Ecrã (38).png" alt="Dashboard financeiro AngoFin">
+            </div>
+            <div class="work-body">
+              <span class="work-type">Case de produto financeiro</span>
+              <h3>Kwanza Smart, AngoFin e evolução de plataformas financeiras.</h3>
+              <p>
+                Trabalho em produto financeiro com dashboards, transações, categorias, metas, dívidas, relatórios, autenticação, estados de acesso, suporte e IA. A Kwanza Smart é o case onde estas peças se juntam: mobile, web, API e Kiko.
+              </p>
+              <div class="stack">
+                <span>React Native</span>
+                <span>Expo</span>
+                <span>Next.js</span>
+                <span>NestJS</span>
+                <span>Prisma</span>
+                <span>Supabase</span>
+                <span>OpenAI</span>
+              </div>
+            </div>
+          </article>
+
+          <div class="side-work">
+            <article class="mini-work reveal" data-tags="backend product finance">
+              <div class="mini-icon" style="background:#2962ff">
+                <i class="fa-solid fa-chart-line"></i>
+              </div>
+              <div>
+                <h3>Dashboards e relatórios</h3>
+                <p>Interfaces para visualizar receitas, despesas, saldo, categorias e evolução financeira.</p>
+              </div>
+            </article>
+
+            <article class="mini-work reveal" data-tags="ai product">
+              <div class="mini-icon" style="background:#1b6b4b">
+                <i class="fa-solid fa-robot"></i>
+              </div>
+              <div>
+                <h3>Assistentes com IA</h3>
+                <p>Fluxos com contexto de utilizador, consentimento, respostas controladas e experiência conversacional.</p>
+              </div>
+            </article>
+
+            <article class="mini-work reveal" data-tags="backend">
+              <div class="mini-img">
+                <img src="laravel-featured.avif" alt="Laravel">
+              </div>
+              <div>
+                <h3>Sistemas web com Laravel</h3>
+                <p>Base de experiência com PHP/Laravel para paineis, rotas, autenticação e sistemas administrativos.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark" id="capacidades">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <p class="kicker">Capacidades</p>
+            <h2 class="section-title">O valor está em ligar as peças certas.</h2>
+          </div>
+          <p class="section-copy">
+            Eu penso no fluxo completo: utilizador, interface, API, base de dados, autenticação, IA, suporte e deploy.
+          </p>
+        </div>
+
+        <div class="lab-grid">
+          <div class="lab-console reveal">
+            <div class="console-top">
+              <span class="console-dot"></span>
+              <span class="console-dot"></span>
+              <span class="console-dot"></span>
+            </div>
+            <pre class="console-code"><span class="dim">// Como eu trabalho</span>
+const josemar = {
+  role: "full stack developer",
+  focus: ["produto", "mobile", "web", "api", "ia"],
+  mindset: "ship, test, improve",
+  outcome: "software que pessoas conseguem usar"
+};
+
+build(josemar)
+  .withUX()
+  .withSecureAPI()
+  .withBusinessRules()
+  .withRealSupport();</pre>
+          </div>
+
+          <div class="lab-panel reveal">
+            <div class="tab-bar" style="padding: 18px 18px 0">
+              <button class="tab-button active" type="button" data-tab="mobile">Mobile</button>
+              <button class="tab-button" type="button" data-tab="web">Web</button>
+              <button class="tab-button" type="button" data-tab="api">API</button>
+              <button class="tab-button" type="button" data-tab="ai">IA</button>
+            </div>
+            <div class="capability-content">
+              <article class="active" data-panel="mobile">
+                <h3>Mobile apps com detalhe de uso real</h3>
+                <p>React Native/Expo para experiências Android e iOS com autenticação, armazenamento seguro, modais, formulários, teclado e estados de conta.</p>
+                <ul class="check-list">
+                  <li><i class="fa-solid fa-check"></i><span>Google/Apple login e fluxos pós-login sem fricção.</span></li>
+                  <li><i class="fa-solid fa-check"></i><span>Correções específicas por plataforma, incluindo Android e iOS.</span></li>
+                  <li><i class="fa-solid fa-check"></i><span>Interface pensada para utilizadores que usam o app todos os dias.</span></li>
+                </ul>
+              </article>
+              <article data-panel="web">
+                <h3>Web apps com dashboards e operações</h3>
+                <p>Next.js, React e Tailwind para painéis, páginas públicas, suporte, definições, relatórios e fluxos autenticados.</p>
+                <ul class="check-list">
+                  <li><i class="fa-solid fa-check"></i><span>Dashboards densos, claros e responsivos.</span></li>
+                  <li><i class="fa-solid fa-check"></i><span>Login, recuperação de senha e páginas de suporte.</span></li>
+                  <li><i class="fa-solid fa-check"></i><span>Textos de produto alinhados com regras reais.</span></li>
+                </ul>
+              </article>
+              <article data-panel="api">
+                <h3>APIs e dados para produção</h3>
+                <p>NestJS, Prisma, PostgreSQL/Supabase, JWT, guards, migrations, pagamentos, notificações e regras de acesso.</p>
+                <ul class="check-list">
+                  <li><i class="fa-solid fa-check"></i><span>Autenticação, refresh tokens e perfis sincronizados.</span></li>
+                  <li><i class="fa-solid fa-check"></i><span>Regras de negócio protegidas no backend.</span></li>
+                  <li><i class="fa-solid fa-check"></i><span>Base de dados pensada para evolução e suporte.</span></li>
+                </ul>
+              </article>
+              <article data-panel="ai">
+                <h3>IA aplicada sem perder o controlo</h3>
+                <p>Assistentes que usam contexto com consentimento, evitam promessas sensíveis e entregam respostas úteis dentro do produto.</p>
+                <ul class="check-list">
+                  <li><i class="fa-solid fa-check"></i><span>Consentimento de uso de dados antes do assistente.</span></li>
+                  <li><i class="fa-solid fa-check"></i><span>Prompts e sanitização para manter a resposta segura.</span></li>
+                  <li><i class="fa-solid fa-check"></i><span>Integração com dados financeiros do utilizador.</span></li>
+                </ul>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="provas">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <p class="kicker">Provas de execução</p>
+            <h2 class="section-title">Sinais que importam para quem contrata.</h2>
+          </div>
+          <p class="section-copy">
+            O portfolio não precisa gritar. Precisa mostrar que eu sei lidar com produto real, bugs reais e decisões reais.
+          </p>
+        </div>
+
+        <div class="proof-grid">
+          <article class="proof-card reveal">
+            <strong>01</strong>
+            <h3>Produto, não só código</h3>
+            <p>Entendo o impacto do fluxo no utilizador antes de mexer na implementação.</p>
+          </article>
+          <article class="proof-card reveal">
+            <strong>02</strong>
+            <h3>Stack moderna</h3>
+            <p>React Native, Next.js, NestJS, Prisma, Supabase, OpenAI, Laravel e Git.</p>
+          </article>
+          <article class="proof-card reveal">
+            <strong>03</strong>
+            <h3>Privacidade e suporte</h3>
+            <p>Consentimento de IA, textos de suporte, revisão Apple e clareza para o utilizador.</p>
+          </article>
+          <article class="proof-card reveal">
+            <strong>04</strong>
+            <h3>Entrega ponta a ponta</h3>
+            <p>Leio, implemento, valido, faço push e explico exatamente o que mudou.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="cv">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <p class="kicker">Currículo</p>
+            <h2 class="section-title">O CV está pronto para baixar.</h2>
+          </div>
+          <p class="section-copy">
+            Coloquei o download em pontos estratégicos da página para recrutadores e clientes conseguirem chegar ao documento sem procurar.
+          </p>
+        </div>
+
+        <div class="cv-section">
+          <article class="cv-card reveal">
+            <div>
+              <div class="cv-icon"><i class="fa-solid fa-file-pdf"></i></div>
+              <h3>CV Josemar Chipandeca</h3>
+              <p>Documento em PDF, versão PT, disponível diretamente neste portfolio.</p>
+            </div>
+            <a class="button accent" href="CV-Josemar-Chipandeca-PT.pdf" download>
+              <i class="fa-solid fa-download"></i> Baixar CV agora
+            </a>
+          </article>
+
+          <div class="cv-details reveal">
+            <div class="cv-row">
+              <strong>Perfil</strong>
+              <span>Full stack developer com foco em produto, mobile, web, APIs e IA aplicada.</span>
+            </div>
+            <div class="cv-row">
+              <strong>Localização</strong>
+              <span>Luanda, Angola. Trabalho com produtos digitais para contexto local e remoto.</span>
+            </div>
+            <div class="cv-row">
+              <strong>Stack principal</strong>
+              <span>React Native, Expo, React, Next.js, NestJS, Prisma, PostgreSQL, Supabase, Laravel, OpenAI.</span>
+            </div>
+            <div class="cv-row">
+              <strong>Diferencial</strong>
+              <span>Consigo ligar UX, backend, dados, autenticação, IA e suporte numa entrega coerente.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contacto">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <p class="kicker">Contacto</p>
+            <h2 class="section-title">Se o projeto é sério, eu quero ouvir.</h2>
+          </div>
+          <p class="section-copy">
+            Estou disponível para desenvolvimento web/mobile, APIs, automações, IA aplicada e melhorias em produtos existentes.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <aside class="contact-card reveal">
+            <h3>Josemar Chipandeca</h3>
+            <p>Full stack developer em Luanda, Angola. Vamos conversar sobre produto, código e entrega.</p>
+            <div class="contact-links">
+              <a class="contact-link" href="mailto:josemarchipandeca@gmail.com">
+                <i class="fa-solid fa-envelope"></i>
+                <strong>Email<span>josemarchipandeca@gmail.com</span></strong>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+              <a class="contact-link" href="tel:+244933525840">
+                <i class="fa-solid fa-phone"></i>
+                <strong>Telefone<span>+244 933 525 840</span></strong>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+              <a class="contact-link" href="https://github.com/Josemar4149N" target="_blank" rel="noreferrer">
+                <i class="fa-brands fa-github"></i>
+                <strong>GitHub<span>github.com/Josemar4149N</span></strong>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+              <a class="contact-link" href="https://www.linkedin.com/in/josemar-chipandeca-231547200/" target="_blank" rel="noreferrer">
+                <i class="fa-brands fa-linkedin-in"></i>
+                <strong>LinkedIn<span>Josemar Chipandeca</span></strong>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+          </aside>
+
+          <form class="contact-form reveal" action="https://formsubmit.co/josemarchipandeca@gmail.com" method="POST">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_subject" value="Nova mensagem pelo portfolio">
+            <div class="form-grid">
+              <div class="field">
+                <label for="name">Nome</label>
+                <input id="name" name="name" type="text" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" required>
+              </div>
+              <div class="field full">
+                <label for="subject">Assunto</label>
+                <input id="subject" name="subject" type="text" required>
+              </div>
+              <div class="field full">
+                <label for="message">Mensagem</label>
+                <textarea id="message" name="message" required></textarea>
+              </div>
+            </div>
+            <button class="button submit-button" type="submit">
+              <i class="fa-solid fa-paper-plane"></i> Enviar mensagem
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <strong>Josemar Chipandeca</strong>
+      <span>Full stack developer | Luanda, Angola</span>
+      <span>&copy; <span id="year">2026</span></span>
+    </div>
+  </footer>
+
+  <a class="back-to-top" id="backToTop" href="#top" aria-label="Voltar ao topo">
+    <i class="fa-solid fa-arrow-up"></i>
+  </a>
 
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Josemar Chipandeca",
-      "jobTitle": "Full Stack Product Engineer",
+      "jobTitle": "Full Stack Developer",
       "email": "mailto:josemarchipandeca@gmail.com",
       "telephone": "+244933525840",
       "address": {
@@ -1486,33 +1559,61 @@
       },
       "sameAs": [
         "https://github.com/Josemar4149N",
-        "https://www.linkedin.com/in/josemar-chipandeca-231547200/",
-        "https://www.instagram.com/josemarchipandeca/"
+        "https://www.linkedin.com/in/josemar-chipandeca-231547200/"
       ],
-      "knowsAbout": [
-        "React Native",
-        "Next.js",
-        "NestJS",
-        "Prisma",
-        "Supabase",
-        "OpenAI",
-        "Product Engineering"
-      ]
+      "knowsAbout": ["React Native", "Next.js", "NestJS", "Prisma", "Supabase", "Laravel", "OpenAI"]
     }
   </script>
+
   <script>
+    const roles = [
+      "produtos digitais completos",
+      "mobile apps que pessoas usam",
+      "APIs seguras para produção",
+      "dashboards financeiros claros",
+      "IA aplicada com propósito"
+    ];
+
+    const roleWord = document.getElementById("roleWord");
+    const progressLine = document.getElementById("progressLine");
+    const backToTop = document.getElementById("backToTop");
     const nav = document.getElementById("siteNav");
     const menuButton = document.getElementById("menuButton");
-    const backToTop = document.getElementById("backToTop");
+    const themeToggle = document.getElementById("themeToggle");
     const year = document.getElementById("year");
+    let roleIndex = 0;
 
     if (year) {
       year.textContent = new Date().getFullYear().toString();
     }
 
+    setInterval(() => {
+      roleIndex = (roleIndex + 1) % roles.length;
+      if (roleWord) {
+        roleWord.animate(
+          [{ opacity: 1, transform: "translateY(0)" }, { opacity: 0, transform: "translateY(-8px)" }],
+          { duration: 160, easing: "ease-out" }
+        ).onfinish = () => {
+          roleWord.textContent = roles[roleIndex];
+          roleWord.animate(
+            [{ opacity: 0, transform: "translateY(8px)" }, { opacity: 1, transform: "translateY(0)" }],
+            { duration: 220, easing: "ease-out" }
+          );
+        };
+      }
+    }, 2400);
+
+    window.addEventListener("scroll", () => {
+      const scrollTop = window.scrollY;
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = maxScroll > 0 ? (scrollTop / maxScroll) * 100 : 0;
+      if (progressLine) progressLine.style.width = `${progress}%`;
+      if (backToTop) backToTop.classList.toggle("visible", scrollTop > 420);
+    });
+
     menuButton?.addEventListener("click", () => {
-      const isOpen = nav.classList.toggle("open");
-      menuButton.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      const open = nav.classList.toggle("open");
+      menuButton.setAttribute("aria-expanded", open ? "true" : "false");
     });
 
     document.querySelectorAll(".nav-links a").forEach((link) => {
@@ -1522,13 +1623,78 @@
       });
     });
 
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 420) {
-        backToTop?.classList.add("visible");
-      } else {
-        backToTop?.classList.remove("visible");
+    themeToggle?.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+      const icon = themeToggle.querySelector("i");
+      if (icon) {
+        icon.className = document.body.classList.contains("dark-mode")
+          ? "fa-solid fa-sun"
+          : "fa-solid fa-moon";
       }
     });
+
+    document.querySelectorAll(".filter-button").forEach((button) => {
+      button.addEventListener("click", () => {
+        const filter = button.getAttribute("data-filter") || "all";
+        document.querySelectorAll(".filter-button").forEach((item) => item.classList.remove("active"));
+        button.classList.add("active");
+
+        document.querySelectorAll("[data-tags]").forEach((card) => {
+          const tags = card.getAttribute("data-tags") || "";
+          const visible = filter === "all" || tags.includes(filter);
+          card.classList.toggle("hidden", !visible);
+        });
+      });
+    });
+
+    document.querySelectorAll(".tab-button").forEach((button) => {
+      button.addEventListener("click", () => {
+        const tab = button.getAttribute("data-tab");
+        document.querySelectorAll(".tab-button").forEach((item) => item.classList.remove("active"));
+        document.querySelectorAll("[data-panel]").forEach((panel) => panel.classList.remove("active"));
+        button.classList.add("active");
+        document.querySelector(`[data-panel="${tab}"]`)?.classList.add("active");
+      });
+    });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.14 }
+    );
+
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+
+    const countObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const target = entry.target;
+          const finalValue = Number(target.getAttribute("data-count"));
+          if (!Number.isFinite(finalValue)) return;
+          let current = 0;
+          const step = Math.max(1, Math.ceil(finalValue / 24));
+          const timer = setInterval(() => {
+            current += step;
+            if (current >= finalValue) {
+              current = finalValue;
+              clearInterval(timer);
+            }
+            target.textContent = current.toString();
+          }, 35);
+          countObserver.unobserve(target);
+        });
+      },
+      { threshold: 0.6 }
+    );
+
+    document.querySelectorAll("[data-count]").forEach((el) => countObserver.observe(el));
   </script>
 </body>
 </html>
