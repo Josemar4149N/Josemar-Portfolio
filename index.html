@@ -106,8 +106,8 @@
       position: sticky;
       top: 0;
       z-index: 80;
-      border-bottom: 1px solid rgba(226, 232, 240, 0.72);
-      background: rgba(248, 250, 252, 0.88);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(15, 15, 15, 0.92);
       backdrop-filter: blur(18px);
     }
 
@@ -130,6 +130,7 @@
       gap: 12px;
       font-weight: 900;
       letter-spacing: -0.02em;
+      color: #fff;
     }
 
     .brand-mark {
@@ -168,15 +169,15 @@
     .nav-links a:hover,
     .nav-links a.active,
     .small-icon:hover {
-      color: var(--ink);
-      background: var(--surface);
-      border-color: var(--line);
+      color: #00d084;
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(0, 208, 132, 0.28);
     }
 
     .nav-links .download-link {
-      background: var(--dark);
-      color: #fff;
-      border-color: var(--dark);
+      background: transparent;
+      color: #00d084;
+      border-color: #00d084;
     }
 
     .nav-links .download-link:hover {
@@ -214,6 +215,14 @@
       min-height: auto;
     }
 
+    #inicio {
+      min-height: calc(100vh - 76px);
+      padding: 0;
+      background: #101010;
+      color: #fff;
+      overflow: hidden;
+    }
+
     .section-label {
       display: block;
       color: var(--muted);
@@ -246,45 +255,57 @@
 
     .hero-grid {
       display: grid;
-      grid-template-columns: minmax(320px, 0.84fr) minmax(0, 1.16fr);
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
       gap: 58px;
       align-items: center;
+      min-height: calc(100vh - 76px);
     }
 
     .profile-wrap {
       position: relative;
-      width: min(410px, 100%);
-      margin: 0 auto;
+      width: min(560px, 100%);
+      height: 100%;
+      min-height: 620px;
+      margin: 0 0 0 auto;
+      display: flex;
+      align-items: end;
+      justify-content: center;
     }
 
     .profile-card {
       position: relative;
       overflow: hidden;
-      aspect-ratio: 1;
-      border-radius: 50%;
-      border: 12px solid var(--surface);
-      box-shadow: var(--shadow);
-      background: var(--surface-2);
+      width: 100%;
+      height: min(78vh, 760px);
+      min-height: 600px;
+      border-radius: 0;
+      border: 0;
+      box-shadow: none;
+      background: #101010;
+    }
+
+    .profile-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, #101010 0%, rgba(16, 16, 16, 0.42) 34%, rgba(16, 16, 16, 0.04) 68%),
+        linear-gradient(0deg, #101010 0%, rgba(16, 16, 16, 0) 26%);
     }
 
     .profile-card img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 18%;
+      object-position: center top;
+      filter: grayscale(1) contrast(1.12) brightness(0.66);
+      opacity: 0.92;
     }
 
     .floating-card {
-      position: absolute;
-      right: -18px;
-      bottom: 24px;
-      width: 210px;
-      padding: 16px;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.86);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(16px);
+      display: none;
     }
 
     body.dark .floating-card {
@@ -304,6 +325,8 @@
 
     .hero-copy {
       max-width: 720px;
+      position: relative;
+      z-index: 2;
     }
 
     .status {
@@ -314,8 +337,8 @@
       margin-bottom: 20px;
       border: 1px solid var(--line);
       border-radius: 999px;
-      color: var(--green);
-      background: var(--surface);
+      color: #00d084;
+      background: rgba(255, 255, 255, 0.04);
       font-weight: 900;
       font-size: 0.86rem;
     }
@@ -339,7 +362,7 @@
 
     .hero-copy h1 span {
       display: block;
-      color: var(--blue);
+      color: #fff;
     }
 
     .typed-line {
@@ -350,7 +373,7 @@
     }
 
     .typed-line strong {
-      color: var(--ink);
+      color: #fff;
       display: inline-block;
       min-width: 1ch;
       border-bottom: 3px solid var(--green);
@@ -382,7 +405,7 @@
     .hero-text {
       margin: 18px 0 0;
       max-width: 670px;
-      color: var(--muted);
+      color: rgba(255, 255, 255, 0.72);
       font-size: 1.1rem;
     }
 
@@ -411,9 +434,9 @@
     }
 
     .button.primary {
-      background: var(--dark);
-      color: #fff;
-      border-color: var(--dark);
+      background: transparent;
+      color: #00d084;
+      border-color: #00d084;
     }
 
     .button.primary:hover {
@@ -422,8 +445,8 @@
     }
 
     .button.secondary {
-      background: var(--surface);
-      color: var(--ink);
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
     }
 
     .button.accent {
@@ -458,23 +481,11 @@
 
     .about-grid {
       display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
+      grid-template-columns: 1fr;
       gap: 34px;
       align-items: center;
-    }
-
-    .about-photo {
-      border-radius: var(--radius);
-      overflow: hidden;
-      background: var(--surface-2);
-      box-shadow: var(--shadow);
-    }
-
-    .about-photo img {
-      width: 100%;
-      height: 560px;
-      object-fit: cover;
-      object-position: center top;
+      max-width: 900px;
+      margin: 0 auto;
     }
 
     .about-content {
@@ -972,10 +983,6 @@
         grid-template-columns: 1fr;
       }
 
-      .about-photo img {
-        height: 420px;
-      }
-
       .timeline-item {
         grid-template-columns: 1fr;
         gap: 8px;
@@ -1035,16 +1042,6 @@
   <main>
     <section class="section" id="inicio">
       <div class="container hero-grid">
-        <div class="profile-wrap reveal">
-          <div class="profile-card">
-            <img src="456706090_550163480856093_6749014266149851661_n.jpg" alt="Josemar Chipandeca">
-          </div>
-          <div class="floating-card">
-            <strong>Full Stack</strong>
-            <span>Web, mobile, backend, IA e produtos digitais.</span>
-          </div>
-        </div>
-
         <div class="hero-copy reveal">
           <span class="status">Disponível para projetos selecionados</span>
           <h1>Josemar <span>Chipandeca</span></h1>
@@ -1078,6 +1075,16 @@
             </a>
           </div>
         </div>
+
+        <div class="profile-wrap reveal">
+          <div class="profile-card">
+            <img src="456706090_550163480856093_6749014266149851661_n.jpg" alt="Josemar Chipandeca">
+          </div>
+          <div class="floating-card">
+            <strong>Full Stack</strong>
+            <span>Web, mobile, backend, IA e produtos digitais.</span>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1090,9 +1097,6 @@
         </div>
 
         <div class="about-grid">
-          <div class="about-photo reveal">
-            <img src="456706090_550163480856093_6749014266149851661_n.jpg" alt="Josemar em evento formal">
-          </div>
           <div class="about-content reveal">
             <div class="info-cards">
               <article class="info-card">
